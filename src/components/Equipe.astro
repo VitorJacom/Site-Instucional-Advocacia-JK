@@ -1,0 +1,187 @@
+---
+import { Image } from "astro:assets";
+import fotoJulio from "../assets/julio.png";
+import fotoKasi from "../assets/kasi.png";
+import fotoDaniel from "../assets/daniel.png";
+import fotoIndi from "../assets/indi.png";
+
+const equipe = [
+  {
+    nome: "Dr. Júlio César Sant'Anna de Souza",
+    cargo: "Sócio e Advogado - OAB/RS 33.764",
+    foto: fotoJulio,
+    resumo:
+      "Advogado formado em 1993, especialista em Direito e Processo do Trabalho. Ex-presidente da OAB Subsecção de Santo Antônio da Patrulha.",
+  },
+  {
+    nome: "Dra. Kassiane Killes Ramos",
+    cargo: "Sócia e Advogada - OAB/RS 84.799",
+    foto: fotoKasi,
+    resumo:
+      "Advogada graduada pela Unisinos, especialista em Direito Previdenciário e do Trabalho. Conselheira da OAB e ex-presidente da Comissão da Mulher Advogada.",
+  },
+  {
+    nome: "Dr. Daniel Ribeiro Machado",
+    cargo: "Advogado - OAB/RS 126.319",
+    foto: fotoDaniel,
+    resumo:
+      "Advogado pós-graduado em Direito Imobiliário, Agronegócio e Notarial. Especialista em Execução Trabalhista focado na excelência do atendimento aos clientes.",
+  },
+  {
+    nome: "Indihani S. Lemos de Melo",
+    cargo: "Assistente Administrativo",
+    foto: fotoIndi,
+    resumo:
+      "Graduanda em Direito pela Unisinos e técnica em Contabilidade, Administração e Recursos Humanos. Responsável pelo suporte administrativo.",
+  },
+];
+---
+
+<section class="equipe-section">
+  <div class="container">
+    <h2 class="section-title">Nossa Equipe</h2>
+
+    <div class="equipe-grid">
+      {
+        equipe.map((membro) => (
+          <div class="membro-card">
+            <div class="membro-foto-container">
+              <Image src={membro.foto} alt={membro.nome} class="membro-foto" />
+            </div>
+            <div class="membro-info">
+              <h3 class="membro-nome">{membro.nome}</h3>
+              <p class="membro-cargo">{membro.cargo}</p>
+              <div class="divider" />
+              <p class="membro-resumo">{membro.resumo}</p>
+              <a href="/sobre" class="btn-saiba-mais">
+                SAIBA MAIS
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .equipe-section {
+    padding: 5rem 2rem;
+    background-color: #f8fafc;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 4rem;
+  }
+
+  .equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .membro-card {
+    background-color: white;
+    display: flex;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .membro-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .membro-foto-container {
+    flex: 0 0 40%;
+    background-color: #e2e8f0;
+  }
+
+  .membro-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .membro-info {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .membro-nome {
+    font-family: "Playfair Display", serif;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+  }
+
+  .membro-cargo {
+    font-size: 0.85rem;
+    color: #519cae;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .divider {
+    width: 40px;
+    height: 2px;
+    background-color: #519cae;
+    margin-bottom: 1rem;
+  }
+
+  .membro-resumo {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .btn-saiba-mais {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #1e293b;
+    text-decoration: none;
+    border-bottom: 2px solid #519cae;
+    padding-bottom: 2px;
+    align-self: flex-start;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .btn-saiba-mais:hover {
+    color: #519cae;
+  }
+
+  @media (max-width: 1024px) {
+    .equipe-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .membro-card {
+      flex-direction: column;
+    }
+    .membro-foto-container {
+      aspect-ratio: 1 / 1;
+    }
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+</style>

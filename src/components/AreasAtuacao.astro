@@ -1,0 +1,206 @@
+---
+import { Image } from "astro:assets";
+import bgImage from "../assets/imageAreaAtuacao.jpeg";
+
+const areas = [
+  {
+    num: "01",
+    id: "trabalho",
+    title: "Direito do\nTrabalho",
+    desc: "Foco de 1980, atuando em prol do direito do trabalhador, de forma combativa, buscando coibir dispensas imotivadas, assédio e rescisões.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`,
+  },
+  {
+    num: "02",
+    id: "sindical",
+    title: "Direito Sindical\n",
+    desc: "Com atendimento personalizado, atuamos em dissídios coletivos, negociações coletivas e defesas de sindicatos perante a Justiça.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
+  },
+  {
+    num: "03",
+    id: "consumidor",
+    title: "Direito do\nConsumidor",
+    desc: "Atuamos na defesa de direitos nas relações de consumo, como compras online, problemas com planos de saúde e serviços essenciais.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+  },
+  {
+    num: "04",
+    id: "previdenciario",
+    title: "Direito\nPrevidenciário",
+    desc: "Para o segurado em Direito Previdenciário, atuamos em aposentadorias, auxílios-doença, pensão por morte e revisões de benefícios.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>`,
+  },
+  {
+    num: "05",
+    id: "civil",
+    title: "Direito \nCivil",
+    desc: "Atuamos na esfera civil de forma abrangente, englobando contratos, família, sucessões, responsabilidade civil e obrigações.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M9 21V9m6 12V9M4 9h16l-8-6-8 6zM12 15v2"/></svg>`,
+  },
+];
+---
+
+<section class="areas-section">
+  <div class="areas-bg" style={`background-image: url(${bgImage.src});`}>
+    <div class="areas-overlay"></div>
+  </div>
+
+  <div class="areas-container">
+    <h2 class="areas-title">Áreas de Atuação</h2>
+
+    <div class="areas-grid">
+      {
+        areas.map((area) => (
+          <div class="area-card">
+            <div class="area-icon" set:html={area.icon} />
+            <h3 class="area-card-title">
+              <span>{area.num}.</span> {area.title}
+            </h3>
+            <p class="area-card-desc">{area.desc}</p>
+            <a href={`/atuacao#${area.id}`} class="area-card-link">
+              SAIBA MAIS
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .areas-section {
+    position: relative;
+    padding: 5rem 2rem;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .areas-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    z-index: -2;
+  }
+
+  .areas-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(245, 245, 245, 0.95) 0%,
+      rgba(245, 245, 245, 0.8) 50%,
+      rgba(245, 245, 245, 0.2) 100%
+    );
+    z-index: -1;
+  }
+
+  .areas-container {
+    max-width: 1400px;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .areas-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 3rem;
+    font-weight: 500;
+  }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+
+  .area-card {
+    background-color: white;
+    padding: 2rem 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .area-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  .area-icon {
+    width: 48px;
+    height: 48px;
+    color: #519cae; /* Cor ajustada para o padrão do site */
+    margin-bottom: 1rem;
+  }
+
+  .area-card-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.25rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    white-space: pre-line;
+  }
+
+  .area-card-desc {
+    font-family: sans-serif;
+    font-size: 0.85rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+  }
+
+  .area-card-link {
+    font-family: sans-serif;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #519cae; /* Cor ajustada para o padrão do site */
+    text-decoration: none;
+    border-bottom: 2px solid #519cae;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+    transition:
+      color 0.2s,
+      border-color 0.2s;
+  }
+
+  .area-card-link:hover {
+    color: #1e293b;
+    border-color: #1e293b;
+  }
+
+  @media (max-width: 1200px) {
+    .areas-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .areas-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .areas-overlay {
+      background: rgba(245, 245, 245, 0.9);
+    }
+  }
+
+  @media (max-width: 500px) {
+    .areas-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

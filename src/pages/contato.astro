@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ContatoHero from "../components/contato/ContatoHero.astro";
+import ContatoForm from "../components/contato/ContatoForm.astro";
+import ContatoLocais from "../components/contato/ContatoLocais.astro";
+---
+
+<Layout title="Contato - JK Advogados">
+  <Header />
+  <main>
+    <ContatoHero />
+    <ContatoLocais />
+    <ContatoForm />
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,99 @@
+---
+const noticias = [
+  {
+    data: "15 Out 2023",
+    titulo: "JK Advocacia em Palestra sobre Direito Sindical",
+    resumo:
+      "JK Advocacia em Palestra sobre Direito Sindical apresentando detalhes em oposição ao cumprimento e compliance em face com empresas...",
+  },
+  {
+    data: "08 Out 2023",
+    titulo: "Kassiane Ramos em Debate de TV sobre Previdência",
+    resumo:
+      "Kassiane Ramos em Debate de TV sobre Previdência - esclarecemos amplos detalhes do compromisso no ensinamento previdenciário, socialmente sobre Previdência...",
+  },
+  {
+    data: "01 Out 2023",
+    titulo: "Novo Advogado se Junta à Equipe JK",
+    resumo:
+      "Novo Advogado se Junta à Equipe JK - JK Advocacia inova Trazendo excelência de direito sobre previdência, sobre advogado e sociais na nova era do Direito...",
+  },
+];
+---
+
+<section class="noticias-section">
+  <div class="container">
+    <h2 class="section-title">Últimas Notícias</h2>
+    <div class="noticias-list">
+      {
+        noticias.map((noticia) => (
+          <div class="noticia-item">
+            <h3 class="noticia-title">
+              <span>{noticia.data}</span> - {noticia.titulo}
+            </h3>
+            <p class="noticia-resumo">{noticia.resumo}</p>
+            <a href="#" class="noticia-link">
+              Ver Notícia
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .noticias-section {
+    padding: 5rem 2rem;
+    background-color: white;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .section-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    color: #1e293b;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .noticias-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .noticia-item {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 2rem;
+  }
+  .noticia-item:last-child {
+    border-bottom: none;
+  }
+  .noticia-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+  .noticia-title span {
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #64748b;
+    font-weight: normal;
+  }
+  .noticia-resumo {
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .noticia-link {
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #519cae;
+    text-decoration: underline;
+  }
+</style>

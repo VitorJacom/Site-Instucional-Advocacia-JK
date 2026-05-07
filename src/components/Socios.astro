@@ -1,0 +1,112 @@
+---
+import { Image } from "astro:assets";
+import fotoJulio from "../assets/julio.png";
+import fotoKassiane from "../assets/kasi.png";
+---
+
+<section class="socios-section">
+  <div class="socios-container">
+    <h2 class="socios-title">Nossos Sócios</h2>
+
+    <div class="socios-grid">
+      <div class="socio-card">
+        <div class="socio-photo-wrapper">
+          <Image
+            src={fotoJulio}
+            alt="Dr. Júlio Sant'Anna"
+            class="socio-photo"
+          />
+        </div>
+        <h3 class="socio-name">Dr. Júlio Sant'Anna</h3>
+      </div>
+
+      <div class="socio-card">
+        <div class="socio-photo-wrapper">
+          <Image
+            src={fotoKassiane}
+            alt="Dra. Kassiane Ramos"
+            class="socio-photo"
+          />
+        </div>
+        <h3 class="socio-name">Dra. Kassiane Ramos</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .socios-section {
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  .socios-container {
+    max-width: 1000px;
+    width: 100%;
+  }
+
+  .socios-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 4rem;
+  }
+
+  .socios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .socio-card {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+
+  .socio-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .socio-photo-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background-color: #f1f5f9;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  .socio-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .socio-name {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .socios-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .socios-title {
+      font-size: 2rem;
+    }
+  }
+</style>

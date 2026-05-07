@@ -1,0 +1,257 @@
+---
+import { Image } from "astro:assets";
+import simbolojk from "../assets/simbolojk.png";
+---
+
+<div id="modal-golpe" class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <Image src={simbolojk} alt="Logo JK Advogados" class="modal-logo" />
+      <button id="close-modal" class="btn-close-top">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="alert-badge">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+          ></path>
+        </svg>
+        ALERTA DE SEGURANÇA
+      </div>
+
+      <h2>Cuidado com Falsos Advogados</h2>
+      <p>
+        Informamos que criminosos estão utilizando o nome de advogados para
+        aplicar golpes via WhatsApp, solicitando pagamentos de custas ou
+        liberação de valores.
+      </p>
+
+      <div class="info-box">
+        <ul>
+          <li>
+            <strong>Nosso número NÃO mudou:</strong> Atendemos apenas pelo <span
+              >(51) 3662-7032</span
+            >.
+          </li>
+          <li>
+            <strong>Não solicitamos PIX</strong> ou depósitos para liberação de processos
+            sem consulta prévia.
+          </li>
+          <li>
+            Sempre confirme a identidade do profissional antes de qualquer
+            transação.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button id="confirm-button" class="btn-confirm"
+        >ENTENDI E ESTOU CIENTE</button
+      >
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Fundo escurecido com desfoque */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: none; /* Escondido por padrão, ativado via Script */
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .modal-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 550px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: modal-appear 0.4s ease-out;
+  }
+
+  @keyframes modal-appear {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .modal-header {
+    padding: 2rem 2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .modal-logo {
+    height: 3.5rem;
+    width: auto;
+    filter: grayscale(1);
+  }
+
+  .btn-close-top {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #94a3b8;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .btn-close-top:hover {
+    color: #1e293b;
+  }
+
+  .modal-body {
+    padding: 0 2rem 2rem;
+    text-align: center;
+  }
+
+  .alert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #fee2e2;
+    color: #dc2626;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+  }
+
+  .alert-badge svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .modal-body h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    color: #0f172a;
+    margin-bottom: 1rem;
+  }
+
+  .modal-body p {
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+  }
+
+  .info-box {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+  }
+
+  .info-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .info-box li {
+    font-size: 0.95rem;
+    color: #334155;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .info-box li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #519cae;
+    font-weight: bold;
+  }
+
+  .info-box li span {
+    color: #1e293b;
+    font-weight: bold;
+    border-bottom: 2px solid #519cae;
+  }
+
+  .modal-footer {
+    padding: 0 2rem 2rem;
+  }
+
+  .btn-confirm {
+    width: 100%;
+    background-color: #0f172a;
+    color: white;
+    border: none;
+    padding: 1.25rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-confirm:hover {
+    background-color: #519cae;
+  }
+
+  @media (max-width: 640px) {
+    .modal-body h2 {
+      font-size: 1.5rem;
+    }
+    .modal-logo {
+      height: 2.5rem;
+    }
+  }
+</style>
+
+<script>
+  // Lógica para mostrar o modal apenas se não foi aceito nesta sessão
+  const modal = document.getElementById("modal-golpe");
+  const closeTop = document.getElementById("close-modal");
+  const confirmBtn = document.getElementById("confirm-button");
+
+  function showModal() {
+    if (!sessionStorage.getItem("aviso-golpe-visto")) {
+      if (modal) modal.style.display = "flex";
+    }
+  }
+
+  function closeModal() {
+    if (modal) modal.style.display = "none";
+    sessionStorage.setItem("aviso-golpe-visto", "true");
+  }
+
+  // Abre após 1 segundo para garantir o foco do usuário
+  setTimeout(showModal, 1000);
+
+  closeTop?.addEventListener("click", closeModal);
+  confirmBtn?.addEventListener("click", closeModal);
+
+  // Fecha se clicar fora do modal
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+</script>

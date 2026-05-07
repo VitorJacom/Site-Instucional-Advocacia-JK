@@ -1,0 +1,101 @@
+---
+
+---
+
+<section class="sobre-content">
+  <div class="container content-grid">
+    <div class="text-block">
+      <h2>Nossa História</h2>
+      <p>
+        Com mais de duas décadas de atuação, o escritório de advocacia de Júlio
+        César Sant'Anna e Kassiane Ramos consolidou-se como referência na
+        prestação de serviços jurídicos no Rio Grande do Sul, com forte presença
+        em Santo Antônio da Patrulha e no Litoral Norte.
+      </p>
+    </div>
+
+    <div class="text-block">
+      <h2>Missão, Visão e Valores</h2>
+      <ul class="valores-list">
+        <li>
+          <strong>Missão:</strong> Oferecer soluções jurídicas seguras e eficientes,
+          garantindo a defesa intransigente dos direitos dos nossos clientes.
+        </li>
+        <li>
+          <strong>Visão:</strong> Ser reconhecido como um escritório de advocacia
+          de excelência, inovação e confiabilidade.
+        </li>
+        <li>
+          <strong>Valores:</strong> Ética, Transparência, Comprometimento e Lealdade.
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sobre-content {
+    padding: 6rem 2rem 2rem;
+    background-color: #f8fafc;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+
+  .text-block h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.2rem;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  .text-block h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #519cae;
+  }
+
+  .text-block p {
+    color: #475569;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    text-align: justify;
+  }
+
+  .valores-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .valores-list li {
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #519cae;
+  }
+
+  @media (max-width: 900px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>
