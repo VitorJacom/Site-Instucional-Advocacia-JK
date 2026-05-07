@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import simbolojk from "../assets/simbolojk.png";
+import { SITE_INFO } from "../lib/constants";
 ---
 
 <div id="modal-golpe" class="modal-overlay">
@@ -36,7 +37,7 @@ import simbolojk from "../assets/simbolojk.png";
         <ul>
           <li>
             <strong>Nosso número NÃO mudou:</strong> Atendemos apenas pelo <span
-              >(51) 3662-7032</span
+              >{SITE_INFO.whatsapp.link}</span
             >.
           </li>
           <li>
