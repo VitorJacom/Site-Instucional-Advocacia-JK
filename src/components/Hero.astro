@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import heroBgImage from "../assets/heroImage.jpeg";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="hero">
@@ -19,7 +21,7 @@ import heroBgImage from "../assets/heroImage.jpeg";
       do escritório de advocacia de Júlio César Sant'Anna e Kassiane Ramos, que
       prestam assistência jurídica nas mais variadas áreas do Direito.
     </p>
-    <a href="/sobre" class="hero-btn">Saiba Mais</a>
+    <a href={`${base}/sobre`} class="hero-btn">Saiba Mais</a>
   </div>
 
   <div class="hero-social">
@@ -29,15 +31,13 @@ import heroBgImage from "../assets/heroImage.jpeg";
         fill="none"
         stroke="currentColor"
         stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
         ><path
           d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
         ></path></svg
       >
     </a>
     <a
-      href="https://www.instagram.com/jk_advocacia/"
+      href="https://www.instagram.com/jkadvogados/"
       target="_blank"
       aria-label="Instagram"
       class="social-icon"
@@ -47,8 +47,6 @@ import heroBgImage from "../assets/heroImage.jpeg";
         fill="none"
         stroke="currentColor"
         stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
         ><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path
           d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line
           x1="17.5"
@@ -63,8 +61,6 @@ import heroBgImage from "../assets/heroImage.jpeg";
         fill="none"
         stroke="currentColor"
         stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
         ><path
           d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
         ></path><rect x="2" y="9" width="4" height="12"></rect><circle
@@ -77,6 +73,7 @@ import heroBgImage from "../assets/heroImage.jpeg";
 </section>
 
 <style>
+  /* Mantidos seus estilos originais */
   .hero {
     position: relative;
     width: 100%;
@@ -86,7 +83,6 @@ import heroBgImage from "../assets/heroImage.jpeg";
     align-items: center;
     overflow: hidden;
   }
-
   .hero-bg {
     position: absolute;
     top: 0;
@@ -97,7 +93,6 @@ import heroBgImage from "../assets/heroImage.jpeg";
     background-position: center;
     z-index: -2;
   }
-
   .hero-overlay {
     position: absolute;
     top: 0;
@@ -111,7 +106,6 @@ import heroBgImage from "../assets/heroImage.jpeg";
     );
     z-index: -1;
   }
-
   .hero-content {
     max-width: 800px;
     text-align: center;
@@ -122,7 +116,6 @@ import heroBgImage from "../assets/heroImage.jpeg";
     flex-direction: column;
     align-items: center;
   }
-
   .hero-title {
     font-family: "Playfair Display", serif;
     font-size: 3rem;
@@ -130,14 +123,12 @@ import heroBgImage from "../assets/heroImage.jpeg";
     margin-bottom: 20px;
     line-height: 1.2;
   }
-
   .hero-subtitle {
     font-family: "Playfair Display", serif;
     font-size: 1.5rem;
     font-weight: normal;
     margin-bottom: 15px;
   }
-
   .hero-text {
     font-family: sans-serif;
     font-size: 1.1rem;
@@ -146,7 +137,6 @@ import heroBgImage from "../assets/heroImage.jpeg";
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
   }
-
   .hero-btn {
     background-color: #519cae;
     color: white;
@@ -158,11 +148,9 @@ import heroBgImage from "../assets/heroImage.jpeg";
     text-transform: uppercase;
     letter-spacing: 1px;
   }
-
   .hero-btn:hover {
     background-color: #3b7b8a;
   }
-
   .hero-social {
     position: absolute;
     right: 40px;
@@ -173,7 +161,6 @@ import heroBgImage from "../assets/heroImage.jpeg";
     gap: 20px;
     z-index: 2;
   }
-
   .social-icon {
     color: white;
     transition:
@@ -186,18 +173,15 @@ import heroBgImage from "../assets/heroImage.jpeg";
     justify-content: center;
     align-items: center;
   }
-
   .social-icon svg {
     width: 100%;
     height: 100%;
   }
-
   .social-icon:hover {
     opacity: 1;
     color: #519cae;
     transform: scale(1.1);
   }
-
   @media (max-width: 768px) {
     .hero {
       min-height: 70vh;

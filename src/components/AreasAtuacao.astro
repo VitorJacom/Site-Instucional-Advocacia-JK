@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import bgImage from "../assets/imageAreaAtuacao.jpeg";
+const base = import.meta.env.BASE_URL;
 
 const areas = [
   {
@@ -58,7 +59,7 @@ const areas = [
               <span>{area.num}.</span> {area.title}
             </h3>
             <p class="area-card-desc">{area.desc}</p>
-            <a href={`/atuacao#${area.id}`} class="area-card-link">
+            <a href={`${base}/atuacao#${area.id}`} class="area-card-link">
               SAIBA MAIS
             </a>
           </div>

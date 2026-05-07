@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import simbolojk from "../assets/simbolojk.png";
 import selo from "../assets/selo.png";
+const base = import.meta.env.BASE_URL;
 ---
 
 <footer class="site-footer">
@@ -26,12 +27,12 @@ import selo from "../assets/selo.png";
 
         <div class="footer-nav">
           <h4 class="footer-heading">Navegação</h4>
-          <a href="/">Início</a>
-          <a href="/sobre">Sobre Nós</a>
-          <a href="/atuacao">Áreas de Atuação</a>
-          <a href="/artigos">Artigos</a>
-          <a href="/atendimento">Atendimentos</a>
-          <a href="/contato">Contato</a>
+          <a href={base}>Início</a>
+          <a href={`${base}/sobre`}>Sobre Nós</a>
+          <a href={`${base}/atuacao`}>Áreas de Atuação</a>
+          <a href={`${base}/artigos`}>Artigos</a>
+          <a href={`${base}/atendimentos`}>Atendimentos</a>
+          <a href={`${base}/contato`}>Contato</a>
         </div>
 
         <div class="footer-contact">
@@ -126,6 +127,7 @@ import selo from "../assets/selo.png";
 </footer>
 
 <style>
+  /* Seus estilos do footer... */
   .site-footer {
     display: flex;
     flex-direction: column;
@@ -163,7 +165,6 @@ import selo from "../assets/selo.png";
   .quote-logo:hover {
     filter: grayscale(0%) opacity(1);
   }
-
   .main-footer {
     background-color: #0f172a;
     color: #94a3b8;
@@ -202,7 +203,6 @@ import selo from "../assets/selo.png";
   .brand-cnpj {
     font-size: 0.85rem;
   }
-
   .footer-nav {
     display: flex;
     flex-direction: column;
@@ -219,7 +219,6 @@ import selo from "../assets/selo.png";
     color: #519cae;
     transform: translateX(5px);
   }
-
   .footer-contact {
     display: flex;
     flex-direction: column;
@@ -239,7 +238,6 @@ import selo from "../assets/selo.png";
     flex-shrink: 0;
     margin-top: 0.2rem;
   }
-
   .social-icons {
     display: flex;
     gap: 1rem;
@@ -266,14 +264,12 @@ import selo from "../assets/selo.png";
     width: 110px;
     height: auto;
   }
-
   .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 2rem;
     text-align: center;
     font-size: 0.85rem;
   }
-
   @media (max-width: 1024px) {
     .footer-grid {
       grid-template-columns: 1fr 1fr;

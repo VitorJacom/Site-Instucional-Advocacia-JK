@@ -1,11 +1,16 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import tailwindcss from '@tailwindcss/vite';
-
-// https://astro.build/config
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()]
-  }
+  site: "https://vitorjacom.github.io",
+
+  base: "/Site-Instucional-Advocacia-JK",
+
+  build: {
+    format: "directory",
+  },
+
+  server: {
+    port: 4321,
+    host: true,
+  },
 });
