@@ -73,7 +73,6 @@ const base = import.meta.env.BASE_URL;
 </section>
 
 <style>
-  /* Mantidos seus estilos originais */
   .hero {
     position: relative;
     width: 100%;
@@ -82,6 +81,7 @@ const base = import.meta.env.BASE_URL;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    padding-top: 80px;
   }
   .hero-bg {
     position: absolute;
@@ -182,22 +182,36 @@ const base = import.meta.env.BASE_URL;
     color: #519cae;
     transform: scale(1.1);
   }
+
   @media (max-width: 768px) {
     .hero {
       min-height: 70vh;
+      padding-top: 100px;
     }
     .hero-title {
-      font-size: 2rem;
+      font-size: 1.75rem;
+    }
+    .hero-subtitle {
+      font-size: 1.25rem;
     }
     .hero-text {
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
+    .hero-content {
+      padding-right: 40px;
+      padding-left: 10px;
+    } /* Recuo para não encostar nos ícones sociais */
     .hero-social {
-      position: static;
-      flex-direction: row;
-      transform: none;
-      margin-top: 2rem;
-      justify-content: center;
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      flex-direction: column; /* Mantém vertical no celular */
+      gap: 15px;
+    }
+    .social-icon {
+      width: 20px;
+      height: 20px;
     }
   }
 </style>
