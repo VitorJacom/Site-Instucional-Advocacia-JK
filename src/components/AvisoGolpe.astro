@@ -36,9 +36,10 @@ import { SITE_INFO } from "../lib/constants";
       <div class="info-box">
         <ul>
           <li>
-            <strong>Nosso número NÃO mudou:</strong> Atendemos apenas pelo <span
-              >{SITE_INFO.whatsapp.number}</span
-            >.
+            <strong>Nosso número NÃO mudou:</strong> Atendemos apenas pelos numeros
+            <span>{SITE_INFO.whatsapp.number} </span>, <span
+              >{SITE_INFO.whatsapp.numberKasi}</span
+            >, <span>{SITE_INFO.whatsapp.numberEscritorio}</span>.
           </li>
           <li>
             <strong>Não solicitamos PIX</strong> ou depósitos para liberação de processos
@@ -61,27 +62,29 @@ import { SITE_INFO } from "../lib/constants";
 </div>
 
 <style>
-  /* Fundo escurecido com desfoque */
   .modal-overlay {
     position: fixed;
     inset: 0;
     background-color: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(8px);
     z-index: 9999;
-    display: none; /* Escondido por padrão, ativado via Script */
+    display: none;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .modal-content {
     background: #ffffff;
     width: 100%;
     max-width: 550px;
+    max-height: 90vh; /* Permite scroll se a tela for pequena */
+    overflow-y: auto; /* Permite scroll interno */
     border-radius: 12px;
-    overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     animation: modal-appear 0.4s ease-out;
+    display: flex;
+    flex-direction: column;
   }
 
   @keyframes modal-appear {
@@ -218,18 +221,61 @@ import { SITE_INFO } from "../lib/constants";
     background-color: #519cae;
   }
 
+  /* Ajustes para Mobile */
   @media (max-width: 640px) {
-    .modal-body h2 {
-      font-size: 1.5rem;
+    .modal-content {
+      max-height: 95vh;
     }
+    .modal-header {
+      padding: 1.5rem 1.5rem 1rem;
+    }
+    .modal-body {
+      padding: 0 1.5rem 1.5rem;
+    }
+    .modal-footer {
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .modal-body h2 {
+      font-size: 1.4rem;
+    }
+    .modal-body p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .info-box {
+      padding: 1rem;
+    }
+    .info-box li {
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
     .modal-logo {
       height: 2.5rem;
+    }
+    .btn-confirm {
+      padding: 1rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .modal-logo {
+      height: 2rem;
+    }
+    .modal-body h2 {
+      font-size: 1.2rem;
+    }
+    .alert-badge {
+      font-size: 0.65rem;
+      padding: 0.4rem 0.8rem;
     }
   }
 </style>
 
 <script>
-  // Lógica para mostrar o modal apenas se não foi aceito nesta sessão
   const modal = document.getElementById("modal-golpe");
   const closeTop = document.getElementById("close-modal");
   const confirmBtn = document.getElementById("confirm-button");
@@ -245,13 +291,11 @@ import { SITE_INFO } from "../lib/constants";
     sessionStorage.setItem("aviso-golpe-visto", "true");
   }
 
-  // Abre após 1 segundo para garantir o foco do usuário
   setTimeout(showModal, 1000);
 
   closeTop?.addEventListener("click", closeModal);
   confirmBtn?.addEventListener("click", closeModal);
 
-  // Fecha se clicar fora do modal
   modal?.addEventListener("click", (e) => {
     if (e.target === modal) closeModal();
   });

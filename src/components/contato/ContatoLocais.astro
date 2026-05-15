@@ -20,8 +20,8 @@ import imgSedeCapao from "../../assets/capaoDaCanoa.png";
         <div class="office-info">
           <h3>Santo Antônio da Patrulha (Sede)</h3>
           <p>
-            Rua Marechal Floriano Peixoto, 284, sala 202<br />Bairro Cidade Alta
-            | CEP 95.500-000
+            Rua Marechal Floriano Peixoto, 284, Segundo andar<br />Bairro Cidade
+            Alta | CEP 95.500-000
           </p>
           <p class="hours">
             <strong>Horário:</strong> Seg. a Sex., 08:30 às 11:30 e 13:30 às 18:00
@@ -56,7 +56,7 @@ import imgSedeCapao from "../../assets/capaoDaCanoa.png";
           <h3>Capão da Canoa</h3>
           <p>
             Rua José Frederico Hoffmann, 43, sala 05<br />Bairro Santa Luzia |
-            CEP 95.555-000
+            CEP 94.691-066
           </p>
           <p class="hours">
             <strong>Horário:</strong> Seg. a Sex., 08:30 às 11:30 e 13:30 às 18:00
@@ -84,9 +84,49 @@ import imgSedeCapao from "../../assets/capaoDaCanoa.png";
       <h3>Atendimento em Demais Locais</h3>
       <div class="locais-tags">
         <span>Sindicato Metalúrgicos Taquara</span>
-        <span>Sindicato Alimentação SAP</span>
+        <span>Sindicato Alimentação Santo Antônio da Patrulha</span>
+        <span>Sindicato Alimentação Osório</span>
         <span>Sindisaúde RS</span>
         <span>Vale dos Sinos (São Leopoldo)</span>
+      </div>
+    </div>
+
+    <div class="modalidades-box">
+      <h3>Modalidades de Atendimento</h3>
+      <div class="modalidades-grid">
+        <div class="modalidade">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            ><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+            ></path><circle cx="12" cy="10" r="3"></circle></svg
+          >
+          <h4>Presencial</h4>
+          <p>
+            Atendemos em nossas sedes físicas em Santo Antônio da Patrulha, Capão
+            da Canoa ou sindicatos parceiros.
+          </p>
+        </div>
+        <div class="modalidade">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            ><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line
+              x1="8"
+              y1="21"
+              x2="16"
+              y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg
+          >
+          <h4>Online</h4>
+          <p>
+            Consultas virtuais via Google Meet, Zoom ou WhatsApp, garantindo
+            suporte jurídico em qualquer lugar do Brasil.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -185,6 +225,7 @@ import imgSedeCapao from "../../assets/capaoDaCanoa.png";
     background: white;
     border-radius: 8px;
     border: 1px solid #e2e8f0;
+    margin-bottom: 5rem;
   }
   .outros-locais h3 {
     font-family: "Playfair Display", serif;
@@ -207,9 +248,60 @@ import imgSedeCapao from "../../assets/capaoDaCanoa.png";
     font-weight: 600;
   }
 
+  .modalidades-box {
+    background: #1e293b;
+    color: white;
+    padding: 4rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 4rem;
+  }
+  .modalidades-box h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+  .modalidades-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+  .modalidade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .modalidade svg {
+    width: 48px;
+    height: 48px;
+    color: #519cae;
+    margin-bottom: 1rem;
+  }
+  .modalidade h4 {
+    font-family: sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .modalidade p {
+    font-family: sans-serif;
+    color: #94a3b8;
+    line-height: 1.6;
+    max-width: 400px;
+  }
+
   @media (max-width: 900px) {
     .offices-grid {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .modalidades-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .modalidades-box {
+      padding: 3rem 2rem;
     }
   }
 </style>
