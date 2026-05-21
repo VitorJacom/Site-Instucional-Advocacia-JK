@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Painel Administrativo</title>
-    <link href="config.yml" type="text/yaml" rel="cms-config-url">
   </head>
   <body>
     <script>
@@ -18,10 +17,28 @@
             name: "github",
             repo: "VitorJacom/Site-Instucional-Advocacia-JK",
             branch: "main",
-            base_url: "https://vitorjacom.github.io",
             auth_type: "pkce",
-            app_id: "Ov23liH8xR3aNPDPDvQE"
-          }
+            app_id: "Ov23liH8xR3aNPDPDvQE", // Verifique se este ID continua o mesmo no seu OAuth App
+            auth_endpoint: "https://github.com/login/oauth/authorize"
+          },
+          load_config_file: false, // Força o CMS a ignorar o config.yml externo para evitar conflitos de URL
+          media_folder: "src/assets",
+          public_folder: "../assets",
+          collections: [
+            {
+              name: "artigos",
+              label: "Artigos",
+              folder: "src/pages/artigos",
+              create: true,
+              slug: "{{slug}}",
+              fields: [
+                {label: "Título", name: "title", widget: "string"},
+                {label: "Data", name: "date", widget: "datetime"},
+                {label: "Autor", name: "author", widget: "string"},
+                {label: "Conteúdo", name: "body", widget: "markdown"}
+              ]
+            }
+          ]
         }
       });
     </script>
