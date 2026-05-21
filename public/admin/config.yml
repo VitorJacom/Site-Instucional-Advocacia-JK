@@ -1,0 +1,33 @@
+backend:
+  name: github
+  repo: VitorJacom/Site-Instucional-Advocacia-JK
+  branch: main
+  app_id: SEU_CLIENT_ID_AQUI
+  auth_type: pkce
+  # Define o nome que aparecerá no histórico do Git
+  commit_author:
+    name: "Painel Admin (Decap CMS)"
+    email: "vjds.vitor+adminJK@com"
+
+# Padronização das mensagens de commit geradas pelo painel
+commit_messages:
+  create: '📝 Criado: {{collection}} "{{slug}}"'
+  update: '🔄 Atualizado: {{collection}} "{{slug}}"'
+  delete: '🗑️ Deletado: {{collection}} "{{slug}}"'
+  uploadMedia: '🖼️ Upload de mídia: "{{path}}"'
+  deleteMedia: '❌ Mídia deletada: "{{path}}"'
+
+media_folder: "src/assets"
+public_folder: "../assets"
+
+collections:
+  - name: "artigos"
+    label: "Artigos"
+    folder: "src/pages/artigos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Data", name: "date", widget: "datetime"}
+      - {label: "Autor", name: "author", widget: "string"}
+      - {label: "Conteúdo", name: "body", widget: "markdown"}
