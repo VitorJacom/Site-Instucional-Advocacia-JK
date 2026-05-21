@@ -19,6 +19,7 @@ commit_messages:
 
 media_folder: "src/assets"
 public_folder: "../assets"
+site_url: "https://vitorjacom.github.io/Site-Instucional-Advocacia-JK"
 
 collections:
   - name: "artigos"

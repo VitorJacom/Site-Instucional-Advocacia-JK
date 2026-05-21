@@ -7,6 +7,23 @@
     <link href="config.yml" type="text/yaml" rel="cms-config-url">
   </head>
   <body>
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      CMS.init({
+        config: {
+          backend: {
+            name: "github",
+            repo: "VitorJacom/Site-Instucional-Advocacia-JK",
+            branch: "main",
+            base_url: "https://vitorjacom.github.io",
+            auth_type: "pkce",
+            app_id: "Ov23liH8xR3aNPDPDvQE"
+          }
+        }
+      });
+    </script>
   </body>
 </html>
