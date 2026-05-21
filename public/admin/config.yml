@@ -2,7 +2,7 @@ backend:
   name: github
   repo: VitorJacom/Site-Instucional-Advocacia-JK
   branch: main
-  app_id: Iv23lir1Nk1oFXAHCSBW
+  app_id: Ov23liH8xR3aNPDPDvQE
   auth_type: pkce
 
   commit_author:
