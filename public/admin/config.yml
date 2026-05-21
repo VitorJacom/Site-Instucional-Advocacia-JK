@@ -7,7 +7,7 @@ backend:
 
   commit_author:
     name: "Painel Admin (Decap CMS)"
-    email: "vjds.vitor+adminJK@com"
+    email: "vjds.vitor+adminJK@gmail.com"
 
 # Padronização das mensagens de commit geradas pelo painel
 commit_messages:
