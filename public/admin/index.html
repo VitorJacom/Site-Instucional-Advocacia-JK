@@ -9,7 +9,7 @@
     <script>
       window.CMS_MANUAL_INIT = true;
     </script>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
     <script>
       CMS.init({
         config: {
@@ -18,10 +18,11 @@
             repo: "VitorJacom/Site-Instucional-Advocacia-JK",
             branch: "main",
             auth_type: "pkce",
-            app_id: "Ov23liH8xR3aNPDPDvQE", // Verifique se este ID continua o mesmo no seu OAuth App
-            auth_endpoint: "https://github.com/login/oauth/authorize"
+            app_id: "Ov23liH8xR3aNPDPDvQE", // Confirme se este é o Client ID do seu OAuth App
           },
-          load_config_file: false, // Força o CMS a ignorar o config.yml externo para evitar conflitos de URL
+          // Forçamos o CMS a não procurar um arquivo externo e não usar caminhos automáticos de auth
+          load_config_file: false,
+          publish_mode: "editorial_workflow", // Opcional: cria "Drafts" antes de publicar
           media_folder: "src/assets",
           public_folder: "../assets",
           collections: [
