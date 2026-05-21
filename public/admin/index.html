@@ -4,44 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Painel Administrativo</title>
+    <link href="https://vitorjacom.github.io/Site-Instucional-Advocacia-JK/admin/config.yml" type="text/yaml" rel="cms-config-url">
   </head>
   <body>
-    <script>
-      window.CMS_MANUAL_INIT = true;
-    </script>
     <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
-    <script>
-      CMS.init({
-        config: {
-          backend: {
-            name: "github",
-            repo: "VitorJacom/Site-Instucional-Advocacia-JK",
-            branch: "main",
-            auth_type: "pkce",
-            app_id: "Ov23liH8xR3aNPDPDvQE", // Confirme se este é o Client ID do seu OAuth App
-          },
-          // Forçamos o CMS a não procurar um arquivo externo e não usar caminhos automáticos de auth
-          load_config_file: false,
-          publish_mode: "editorial_workflow", // Opcional: cria "Drafts" antes de publicar
-          media_folder: "src/assets",
-          public_folder: "../assets",
-          collections: [
-            {
-              name: "artigos",
-              label: "Artigos",
-              folder: "src/pages/artigos",
-              create: true,
-              slug: "{{slug}}",
-              fields: [
-                {label: "Título", name: "title", widget: "string"},
-                {label: "Data", name: "date", widget: "datetime"},
-                {label: "Autor", name: "author", widget: "string"},
-                {label: "Conteúdo", name: "body", widget: "markdown"}
-              ]
-            }
-          ]
-        }
-      });
-    </script>
   </body>
 </html>

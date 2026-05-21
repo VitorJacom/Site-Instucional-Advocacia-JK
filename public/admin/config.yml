@@ -4,22 +4,12 @@ backend:
   branch: main
   app_id: Ov23liH8xR3aNPDPDvQE
   auth_type: pkce
-
-  commit_author:
-    name: "Painel Admin (Decap CMS)"
-    email: "vjds.vitor+adminJK@gmail.com"
-
-# Padronização das mensagens de commit geradas pelo painel
-commit_messages:
-  create: '📝 Criado: {{collection}} "{{slug}}"'
-  update: '🔄 Atualizado: {{collection}} "{{slug}}"'
-  delete: '🗑️ Deletado: {{collection}} "{{slug}}"'
-  uploadMedia: '🖼️ Upload de mídia: "{{path}}"'
-  deleteMedia: '❌ Mídia deletada: "{{path}}"'
+  # Estas duas linhas abaixo são o que impedem o redirecionamento para a Netlify
+  base_url: https://github.com
+  auth_endpoint: login/oauth/authorize
 
 media_folder: "src/assets"
 public_folder: "../assets"
-site_url: "https://vitorjacom.github.io/Site-Instucional-Advocacia-JK"
 
 collections:
   - name: "artigos"
