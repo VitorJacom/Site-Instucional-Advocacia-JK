@@ -2,9 +2,9 @@ backend:
   name: github
   repo: VitorJacom/Site-Instucional-Advocacia-JK
   branch: main
-  app_id: SEU_CLIENT_ID_AQUI
+  app_id: Iv23lir1Nk1oFXAHCSBW
   auth_type: pkce
-  # Define o nome que aparecerá no histórico do Git
+
   commit_author:
     name: "Painel Admin (Decap CMS)"
     email: "vjds.vitor+adminJK@com"
