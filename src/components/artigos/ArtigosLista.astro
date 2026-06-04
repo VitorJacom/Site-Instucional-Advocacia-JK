@@ -20,7 +20,7 @@ const artigos = postsOrdenados.map((post, index) => {
     ...post.data,
     numero: numeroAuto, // Injetamos o número gerado aqui
     capa: capaFinal,
-    url: post.data.slug_personalizado,
+    url: post.data.slug_personalizado || post.id,
   };
 });
 ---

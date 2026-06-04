@@ -1,0 +1,332 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_INFO } from "../../lib/constants";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("artigos");
+  return posts.map((post) => {
+    const slug = post.data.slug_personalizado || post.id;
+    return {
+      params: { slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { titulo, resumo, autor, capa } = post.data;
+const { Content } = await render(post);
+
+const base = import.meta.env.BASE_URL;
+
+// Remove o trailing slash se houver para evitar barra dupla, se necessário
+const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
+
+// Resolve capa image URL
+let capaFinal = capa || `${cleanBase}/src/assets/simbolojk.png`;
+if (capa && !capaFinal.startsWith(cleanBase)) {
+  capaFinal = `${cleanBase}${capaFinal.startsWith("/") ? "" : "/"}${capaFinal}`;
+}
+---
+
+<Layout title={`${titulo} - JK Advogados`}>
+  <Header />
+  <main class="article-page">
+    <!-- Hero Section -->
+    <section class="article-hero">
+      <div class="container hero-container">
+        <a href={`${cleanBase}/artigos`} class="back-link">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="arrow-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          Voltar para Artigos
+        </a>
+        <h1 class="article-title">{titulo}</h1>
+        <div class="article-meta">
+          <span class="article-author">Por <strong>{autor}</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="article-body-section">
+      <div class="container article-container">
+        {capa && (
+          <div class="article-cover-wrapper">
+            <img src={capaFinal} alt={titulo} class="article-cover" />
+          </div>
+        )}
+        
+        <div class="article-content">
+          <p class="article-summary-lead">{resumo}</p>
+          <hr class="divider" />
+          <div class="prose">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="article-cta-section">
+      <div class="container cta-container">
+        <h3 class="cta-title">Ficou com alguma dúvida ou precisa de auxílio jurídico?</h3>
+        <p class="cta-text">Entre em contato com nossa equipe especializada para entender seus direitos.</p>
+        <a href={SITE_INFO.whatsapp.link} target="_blank" rel="noopener noreferrer" class="btn-cta-whatsapp">
+          <svg viewBox="0 0 448 512" fill="currentColor" class="whatsapp-icon">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path>
+          </svg>
+          Falar Conosco
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .article-page {
+    background-color: #f8fafc;
+  }
+  .article-hero {
+    background-color: #0f172a;
+    padding: 10rem 2rem 6rem;
+    color: white;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .hero-container {
+    max-width: 800px;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #519cae;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    margin-bottom: 2.5rem;
+    transition: color 0.3s ease;
+  }
+  .back-link:hover {
+    color: #83c6d6;
+  }
+  .back-link:hover .arrow-icon {
+    transform: translateX(-4px);
+  }
+  .arrow-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    transition: transform 0.3s ease;
+  }
+  .article-title {
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+    color: #f8fafc;
+  }
+  .article-meta {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    font-family: sans-serif;
+  }
+  .article-meta strong {
+    color: #f8fafc;
+  }
+
+  .article-body-section {
+    padding: 0 2rem 5rem;
+  }
+  .article-container {
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 3rem;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    margin-top: -3rem; /* Efeito de card sobreposto ao hero */
+    position: relative;
+    z-index: 10;
+  }
+  .article-cover-wrapper {
+    width: calc(100% + 6rem);
+    margin-left: -3rem;
+    margin-right: -3rem;
+    margin-top: -3rem;
+    margin-bottom: 3rem;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+  .article-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .article-summary-lead {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #475569;
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+  .divider {
+    border: 0;
+    height: 1px;
+    background-color: #e2e8f0;
+    margin: 2rem 0;
+  }
+
+  /* Estilização do conteúdo markdown/rich-text */
+  .prose {
+    font-family: sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #334155;
+  }
+  .prose :global(p) {
+    margin-bottom: 1.5rem;
+  }
+  .prose :global(h2) {
+    font-family: "Playfair Display", serif;
+    font-size: 1.75rem;
+    color: #0f172a;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  .prose :global(h3) {
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
+    color: #0f172a;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  .prose :global(strong) {
+    color: #0f172a;
+    font-weight: 700;
+  }
+  .prose :global(ul) {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .prose :global(ol) {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .prose :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .prose :global(blockquote) {
+    border-left: 4px solid #519cae;
+    padding-left: 1.5rem;
+    color: #475569;
+    font-style: italic;
+    margin: 2rem 0;
+  }
+  .prose :global(a) {
+    color: #519cae;
+    text-decoration: underline;
+    transition: color 0.2s;
+  }
+  .prose :global(a:hover) {
+    color: #3b7b8a;
+  }
+  .prose :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 2.5rem 0;
+  }
+
+  /* CTA Section Styling */
+  .article-cta-section {
+    padding: 4rem 2rem 6rem;
+    background-color: #f1f5f9;
+  }
+  .cta-container {
+    max-width: 800px;
+    text-align: center;
+    background-color: #0f172a;
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin: 0 auto;
+  }
+  .cta-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #f8fafc;
+  }
+  .cta-text {
+    font-family: sans-serif;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+  .btn-cta-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #22c55e;
+    color: white;
+    padding: 0.85rem 2rem;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .btn-cta-whatsapp:hover {
+    background-color: #16a34a;
+    transform: translateY(-2px);
+  }
+  .whatsapp-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .article-hero {
+      padding-top: 8rem;
+    }
+    .article-title {
+      font-size: 2.25rem;
+    }
+    .article-container {
+      padding: 2rem 1.5rem;
+      margin-top: -2rem;
+    }
+    .article-cover-wrapper {
+      width: calc(100% + 3rem);
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      margin-top: -2rem;
+      margin-bottom: 2rem;
+    }
+    .prose {
+      font-size: 1rem;
+    }
+    .cta-container {
+      padding: 2rem 1.5rem;
+    }
+    .cta-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
