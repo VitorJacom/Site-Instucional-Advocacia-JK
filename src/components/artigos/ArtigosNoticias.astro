@@ -1,28 +1,37 @@
 ---
 import { getCollection } from "astro:content";
 
+interface Props {
+  limitar?: boolean;
+}
+const { limitar = false } = Astro.props;
+
 const postsNoticias = await getCollection("noticias");
+const base = import.meta.env.BASE_URL;
+const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
 
 // Ordenar as notícias pela data (mais recente primeiro)
-const noticias = postsNoticias
-  .sort((a, b) => b.data.data.getTime() - a.data.data.getTime())
-  .map((noticia) => {
-    // Formata a data para "15 Out 2023"
-    const dataFormatada = new Intl.DateTimeFormat("pt-BR", {
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-    })
-      .format(noticia.data.data)
-      .replace(".", ""); // Remove o ponto do mês se houver
+const postsOrdenados = postsNoticias.sort((a, b) => b.data.data.getTime() - a.data.data.getTime());
+const totalNoticias = postsOrdenados.length;
+const postsFiltrados = limitar ? postsOrdenados.slice(0, 4) : postsOrdenados;
 
-    return {
-      data: dataFormatada,
-      titulo: noticia.data.titulo,
-      resumo: noticia.data.resumo,
-      link: noticia.data.link_externo || "#",
-    };
-  });
+const noticias = postsFiltrados.map((noticia) => {
+  // Formata a data para "15 Out 2023"
+  const dataFormatada = new Intl.DateTimeFormat("pt-BR", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  })
+    .format(noticia.data.data)
+    .replace(".", ""); // Remove o ponto do mês se houver
+
+  return {
+    data: dataFormatada,
+    titulo: noticia.data.titulo,
+    resumo: noticia.data.resumo,
+    link: noticia.data.link_externo || `${cleanBase}/noticias/${noticia.id}/`,
+  };
+});
 ---
 
 <section class="noticias-section">
@@ -47,6 +56,14 @@ const noticias = postsNoticias
         )
       }
     </div>
+
+    {limitar && totalNoticias > 6 && (
+      <div class="ver-todos-container">
+        <a href={`${cleanBase}/noticias/todas/`} class="btn-ver-todos">
+          Ver Todas as Notícias
+        </a>
+      </div>
+    )}
   </div>
 </section>
 
@@ -103,5 +120,31 @@ const noticias = postsNoticias
     font-weight: bold;
     color: #519cae;
     text-decoration: underline;
+  }
+  
+  .ver-todos-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+  }
+  .btn-ver-todos {
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #519cae;
+    border: 2px solid #519cae;
+    background-color: transparent;
+    padding: 0.85rem 2.5rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+  }
+  .btn-ver-todos:hover {
+    background-color: #519cae;
+    color: white;
+    transform: translateY(-2px);
   }
 </style>

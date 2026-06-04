@@ -1,19 +1,28 @@
 ---
 import { getCollection } from "astro:content";
 
+interface Props {
+  limitar?: boolean;
+}
+const { limitar = false } = Astro.props;
+
 const posts = await getCollection("artigos");
 const base = "/Site-Instucional-Advocacia-JK";
+const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
 
 // Opcional: ordenar os posts por data ou nome de arquivo antes de numerar
 const postsOrdenados = posts.sort((a, b) => a.id.localeCompare(b.id));
 
-const artigos = postsOrdenados.map((post, index) => {
+const totalArtigos = postsOrdenados.length;
+const postsFiltrados = limitar ? postsOrdenados.slice(0, 6) : postsOrdenados;
+
+const artigos = postsFiltrados.map((post, index) => {
   // Geração automática do número (0 -> "01.", 1 -> "02.", etc)
   const numeroAuto = (index + 1).toString().padStart(2, "0") + ".";
 
-  let capaFinal = post.data.capa || `${base}/src/assets/simbolojk.png`;
-  if (post.data.capa && !capaFinal.startsWith(base)) {
-    capaFinal = `${base}${capaFinal.startsWith("/") ? "" : "/"}${capaFinal}`;
+  let capaFinal = post.data.capa || `${cleanBase}/src/assets/simbolojk.png`;
+  if (post.data.capa && !capaFinal.startsWith(cleanBase)) {
+    capaFinal = `${cleanBase}${capaFinal.startsWith("/") ? "" : "/"}${capaFinal}`;
   }
 
   return {
@@ -55,6 +64,14 @@ const artigos = postsOrdenados.map((post, index) => {
         ))
       }
     </div>
+    
+    {limitar && totalArtigos > 6 && (
+      <div class="ver-todos-container">
+        <a href={`${cleanBase}/artigos/todos/`} class="btn-ver-todos">
+          Ver Todos os Artigos
+        </a>
+      </div>
+    )}
   </div>
 </section>
 
@@ -139,6 +156,33 @@ const artigos = postsOrdenados.map((post, index) => {
   .btn-saiba-mais:hover {
     background-color: #3b7b8a;
   }
+  
+  .ver-todos-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+  }
+  .btn-ver-todos {
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #519cae;
+    border: 2px solid #519cae;
+    background-color: transparent;
+    padding: 0.85rem 2.5rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+  }
+  .btn-ver-todos:hover {
+    background-color: #519cae;
+    color: white;
+    transform: translateY(-2px);
+  }
+  
   @media (max-width: 900px) {
     .artigos-grid {
       grid-template-columns: repeat(2, 1fr);

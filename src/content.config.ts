@@ -10,6 +10,7 @@ const artigos = defineCollection({
     autor: z.string(),
     capa: z.string().optional(),
     slug_personalizado: z.string().optional(),
+    link_referencia: z.array(z.string()).optional(),
   }),
 });
 
@@ -20,6 +21,7 @@ const noticias = defineCollection({
     data: z.date(), // O Tina envia como data, o Astro converte
     resumo: z.string(),
     link_externo: z.string().optional(),
+    link_referencia: z.array(z.string()).optional(),
   }),
 });
 

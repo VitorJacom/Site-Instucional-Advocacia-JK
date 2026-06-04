@@ -4,6 +4,8 @@ resumo: "Saiba como o planejamento sucessório pode proteger o patrimônio famil
 autor: "Dr. Júlio Sant'Anna"
 capa: "/src/assets/socios.jpeg"
 slug_personalizado: "planejamento-sucessorio-familiar"
+link_referencia:
+  - "https://www.planalto.gov.br/ccivil_03/leis/l10406compilada.htm"
 ---
 
 O **planejamento sucessório** é um conjunto de estratégias jurídicas que visa a transferência eficiente do patrimônio de uma pessoa para seus herdeiros, ainda em vida ou após o falecimento. O objetivo principal é garantir que a vontade do titular dos bens seja respeitada, diminuindo custos tributários e, principalmente, evitando o desgaste de um processo de inventário litigioso.

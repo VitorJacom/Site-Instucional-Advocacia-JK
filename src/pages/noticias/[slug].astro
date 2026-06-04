@@ -6,62 +6,57 @@ import Footer from "../../components/Footer.astro";
 import { SITE_INFO } from "../../lib/constants";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("artigos");
-  return posts.map((post) => {
-    const slug = post.data.slug_personalizado || post.id;
+  const posts = await getCollection("noticias");
+  // Apenas gera páginas locais para notícias que não possuem link externo
+  const localPosts = posts.filter((post) => !post.data.link_externo);
+  
+  return localPosts.map((post) => {
     return {
-      params: { slug },
+      params: { slug: post.id },
       props: { post },
     };
   });
 }
 
 const { post } = Astro.props;
-const { titulo, resumo, autor, capa, link_referencia } = post.data;
+const { titulo, resumo, data, link_referencia } = post.data;
 const { Content } = await render(post);
 
 const base = import.meta.env.BASE_URL;
-
-// Remove o trailing slash se houver para evitar barra dupla, se necessário
 const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
 
-// Resolve capa image URL
-let capaFinal = capa || `${cleanBase}/src/assets/simbolojk.png`;
-if (capa && !capaFinal.startsWith(cleanBase)) {
-  capaFinal = `${cleanBase}${capaFinal.startsWith("/") ? "" : "/"}${capaFinal}`;
-}
+// Formata a data para exibição
+const dataFormatada = new Intl.DateTimeFormat("pt-BR", {
+  day: "2-digit",
+  month: "long",
+  year: "numeric",
+}).format(data);
 ---
 
-<Layout title={`${titulo} - JK Advogados`}>
+<Layout title={`${titulo} - Notícias - JK Advogados`}>
   <Header />
-  <main class="article-page">
+  <main class="news-page">
     <!-- Hero Section -->
-    <section class="article-hero">
+    <section class="news-hero">
       <div class="container hero-container">
         <a href={`${cleanBase}/artigos`} class="back-link">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="arrow-icon">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
-          Voltar para Artigos
+          Voltar para Artigos e Notícias
         </a>
-        <h1 class="article-title">{titulo}</h1>
-        <div class="article-meta">
-          <span class="article-author">Por <strong>{autor}</strong></span>
+        <h1 class="news-title">{titulo}</h1>
+        <div class="news-meta">
+          <span class="news-date">Publicado em <strong>{dataFormatada}</strong></span>
         </div>
       </div>
     </section>
 
     <!-- Main Content Section -->
-    <section class="article-body-section">
-      <div class="container article-container">
-        {capa && (
-          <div class="article-cover-wrapper">
-            <img src={capaFinal} alt={titulo} class="article-cover" />
-          </div>
-        )}
-        
-        <div class="article-content">
-          <p class="article-summary-lead">{resumo}</p>
+    <section class="news-body-section">
+      <div class="container news-container">
+        <div class="news-content">
+          <p class="news-summary-lead">{resumo}</p>
           <hr class="divider" />
           <div class="prose">
             <Content />
@@ -89,15 +84,15 @@ if (capa && !capaFinal.startsWith(cleanBase)) {
     </section>
 
     <!-- Call to Action Section -->
-    <section class="article-cta-section">
+    <section class="news-cta-section">
       <div class="container cta-container">
-        <h3 class="cta-title">Ficou com alguma dúvida ou precisa de auxílio jurídico?</h3>
-        <p class="cta-text">Entre em contato com nossa equipe especializada para entender seus direitos.</p>
+        <h3 class="cta-title">Precisa de assessoria ou representação jurídica?</h3>
+        <p class="cta-text">Fale com os nossos especialistas e tire suas dúvidas sobre a legislação vigente.</p>
         <a href={SITE_INFO.whatsapp.link} target="_blank" rel="noopener noreferrer" class="btn-cta-whatsapp">
           <svg viewBox="0 0 448 512" fill="currentColor" class="whatsapp-icon">
             <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path>
           </svg>
-          Falar Conosco
+          Entrar em Contato
         </a>
       </div>
     </section>
@@ -106,10 +101,10 @@ if (capa && !capaFinal.startsWith(cleanBase)) {
 </Layout>
 
 <style>
-  .article-page {
+  .news-page {
     background-color: #f8fafc;
   }
-  .article-hero {
+  .news-hero {
     background-color: #0f172a;
     padding: 10rem 2rem 6rem;
     color: white;
@@ -144,26 +139,26 @@ if (capa && !capaFinal.startsWith(cleanBase)) {
     height: 1.1rem;
     transition: transform 0.3s ease;
   }
-  .article-title {
+  .news-title {
     font-family: "Playfair Display", serif;
     font-size: 3rem;
     line-height: 1.25;
     margin-bottom: 1.5rem;
     color: #f8fafc;
   }
-  .article-meta {
+  .news-meta {
     font-size: 0.95rem;
     color: #94a3b8;
     font-family: sans-serif;
   }
-  .article-meta strong {
+  .news-meta strong {
     color: #f8fafc;
   }
 
-  .article-body-section {
+  .news-body-section {
     padding: 0 2rem 5rem;
   }
-  .article-container {
+  .news-container {
     max-width: 800px;
     background-color: #ffffff;
     padding: 3rem;
@@ -173,23 +168,7 @@ if (capa && !capaFinal.startsWith(cleanBase)) {
     position: relative;
     z-index: 10;
   }
-  .article-cover-wrapper {
-    width: calc(100% + 6rem);
-    margin-left: -3rem;
-    margin-right: -3rem;
-    margin-top: -3rem;
-    margin-bottom: 3rem;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    overflow: hidden;
-    aspect-ratio: 16/9;
-  }
-  .article-cover {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .article-summary-lead {
+  .news-summary-lead {
     font-family: sans-serif;
     font-size: 1.2rem;
     line-height: 1.7;
@@ -319,7 +298,7 @@ if (capa && !capaFinal.startsWith(cleanBase)) {
   }
 
   /* CTA Section Styling */
-  .article-cta-section {
+  .news-cta-section {
     padding: 4rem 2rem 6rem;
     background-color: #f1f5f9;
   }
@@ -369,22 +348,15 @@ if (capa && !capaFinal.startsWith(cleanBase)) {
 
   /* Responsive Design */
   @media (max-width: 768px) {
-    .article-hero {
+    .news-hero {
       padding-top: 8rem;
     }
-    .article-title {
+    .news-title {
       font-size: 2.25rem;
     }
-    .article-container {
+    .news-container {
       padding: 2rem 1.5rem;
       margin-top: -2rem;
-    }
-    .article-cover-wrapper {
-      width: calc(100% + 3rem);
-      margin-left: -1.5rem;
-      margin-right: -1.5rem;
-      margin-top: -2rem;
-      margin-bottom: 2rem;
     }
     .prose {
       font-size: 1rem;

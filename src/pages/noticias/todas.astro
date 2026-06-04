@@ -1,0 +1,92 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import ArtigosNoticias from "../../components/artigos/ArtigosNoticias.astro";
+
+const base = import.meta.env.BASE_URL;
+const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
+---
+
+<Layout title="Todas as Notícias - JK Advogados">
+  <Header />
+  <main>
+    <section class="todas-hero">
+      <div class="container hero-container">
+        <a href={`${cleanBase}/artigos`} class="back-link">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="arrow-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          Voltar para Artigos e Notícias
+        </a>
+        <h1 class="page-title">Todas as Notícias</h1>
+        <p class="page-subtitle">
+          Acompanhe todas as atualizações e novidades do mundo jurídico.
+        </p>
+      </div>
+    </section>
+    
+    <ArtigosNoticias limitar={false} />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .todas-hero {
+    background-color: #0f172a;
+    padding: 10rem 2rem 5rem;
+    color: white;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #519cae;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+  }
+  .back-link:hover {
+    color: #83c6d6;
+  }
+  .back-link:hover .arrow-icon {
+    transform: translateX(-4px);
+  }
+  .arrow-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    transition: transform 0.3s ease;
+  }
+  .page-title {
+    font-family: "Playfair Display", serif;
+    font-size: 3.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #f8fafc;
+  }
+  .page-subtitle {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .page-title {
+      font-size: 2.5rem;
+    }
+    .todas-hero {
+      padding-top: 8rem;
+    }
+  }
+</style>
