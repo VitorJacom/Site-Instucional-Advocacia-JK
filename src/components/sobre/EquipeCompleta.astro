@@ -1,77 +1,24 @@
 ---
-import { Image } from "astro:assets";
-import fotoJulio from "../../assets/julio.png";
-import fotoKasi from "../../assets/kasi.png";
-import fotoDaniel from "../../assets/daniel.png";
-import fotoIndi from "../../assets/indi.png";
+import { getCollection } from "astro:content";
 
-const equipeCompleta = [
-  {
-    nome: "Dr. Júlio César Sant'Anna de Souza",
-    cargo: "Sócio e Advogado - OAB/RS 33.764",
-    foto: fotoJulio,
-    textos: [
-      "Júlio César Sant'Anna de Souza, advogado, natural de Porto Alegre.",
-      "Formado em Direito pela Faculdade Ritter dos Reis em 21/08/1993.",
-      "Especialista em direito do trabalho pela FEMARGS, Fundação Escola de Magistratura do Trabalho do Rio Grande do Sul 1994.",
-      "Pós graduado em Direito e Processo do Trabalho pela Pontifícia Universidade Católica, PUC/RS, em 06/12/2022.",
-      "De junho de 1993 a janeiro de 2008, manteve escritório de advocacia próprio no centro histórico de Porto Alegre.",
-      "Desde o ano de 2000, presta atendimento jurídico em Santo Antônio da Patrulha e Litoral Norte do Estado.",
-      "Desde o ano de 2006, possui escritório de advocacia em Santo Antônio da Patrulha, na Rua Marechal Floriano Peixoto, 284.",
-      "Conciliador no Juizado Especial Civel de Canoas de 2001 a 2004; Juiz Leigo no Juizado Especial Civel de Canoas 2004 a 2007.",
-      "Advogado do Sindicato dos Metalúrgicos de Taquara e Litoral do RS atuando na defesa dos trabalhadores, em ações individuais, plurimas, ações civis públicas e de cumprimento e negociações coletivas desde 1998.",
-      "Advogado do Sindicato Trabalhadores nas Indústrias de Alimentação de Santo Antônio da Patrulha e Litoral do RS atuando na defesa dos trabalhadores, em ações individuais, plurimas, ações civis públicas e de cumprimento e negociações coletivas desde 2003.",
-      "Advogado Credenciado junto ao SindiSaude-RS desde 2016. Auditor da 2ª Comissão Disciplinar Desportiva da Federação Gaúcha de Futebol de Salão de 2015 a 2020.",
-      "Em 09 de dezembro de 2019, foi agraciado com o título de Cidadão Patrulhense pelos relevantes serviços prestados à comunidade da cidade.",
-      "Presidente da OAB Subseção de Santo Antônio da Patrulha no triênio 2016/2018 e 2022/2024. Vice-Presidente no triênio 2019/2021.",
-      "Integrante a 4a. Turma Julgadora do Tribunal de Ética e Disciplina da OAB/RS na Gestão 2019/2021. Comissão Especial da Advocacia Trabalhista - CEAT - da OAB/RS Gestão 2019/2021.",
-    ],
-  },
-  {
-    nome: "Dra. Kassiane Killes Ramos",
-    cargo: "Sócia e Advogada - OAB/RS 84.799",
-    foto: fotoKasi,
-    textos: [
-      "Kassiane Killes Ramos, advogada, natural de Santo Antônio da Patrulha/RS.",
-      "Graduada em Direito pela Universidade do Vale do Rio dos Sinos (Unisinos) em 30/07/2011.",
-      "Graduada em Administração Pública pela Universidade Federal de Santa Maria (UFSM) em 03/03/2017.",
-      "Pós Graduada em Direito Previdenciário pelo Centro Universitário Leonardo DaVinci em 11/05/2015.",
-      "Pós Graduada em Direito e Processo do Trabalho pela Pontifícia Universidade Católica RS em 06/12/2022.",
-      "Técnica em Contabilidade pelo Instituto Federal de Educação, Ciência e Tecnologia Sul-Rio-Grandense em 10/08/2014.",
-      "Conselheira da OAB Subseção Santo Antônio da Patrulha triênios 2019/2021, 2022/2024 e 2025/2027.",
-      "Vice-Presidente da Comissão da Mulher Advogada da OAB Subseção Santo Antônio da Patrulha, 2019/2020.",
-      "Presidente da Comissão da Mulher Advogada da OAB Subseção Santo Antônio da Patrulha, 2020/2021.",
-    ],
-  },
-  {
-    nome: "Dr. Daniel Ribeiro Machado",
-    cargo: "Advogado - OAB/RS 126.319",
-    foto: fotoDaniel,
-    textos: [
-      "Daniel Ribeiro Machado, advogado, natural de Santo Antônio da Patrulha/RS.",
-      "Graduado em Direito pela Universidade Luterana do Brasil (Ulbra) em 18/08/2021.",
-      "Pós-Graduado em Direito Imobiliário pela Legale Educacional.",
-      "Pós-Graduado em Direito do Agronegócio pela Legale Educacional.",
-      "Pós-Graduado em Direito Notarial e Registral pela Legale Educacional.",
-      "Pós-Graduado em Execução Trabalhista pela Legale Educacional.",
-      "Sempre em busca da excelência para cuidar dos interesses das pessoas.",
-      "Em agosto de 2022 ingressou na equipe como advogado no escritório de Júlio Sant’Anna & Kassiane Ramos Advogados.",
-    ],
-  },
-  {
-    nome: "Indihani S. Lemos de Melo",
-    cargo: "Assistente Administrativo",
-    foto: fotoIndi,
-    textos: [
-      "Indihani S. Lemos de Melo, Assistente Administrativo, natural de Porto Alegre/RS.",
-      "Graduanda em Direito pela Universidade do Vale do Rio dos Sinos (Unisinos).",
-      "Técnica em Recursos Humanos pela IFSul – Instituto Federal Sul Rio-Grandense /2013.",
-      "Técnica em Administração pela IFSul – Instituto Federal Sul Rio-Grandense /2015.",
-      "Técnica em Contabilidade pelo IFSul – Instituto Federal Sul Rio-Grandense /2016.",
-      "Cursos complementares: Marketing Pessoal e Atendimento ao Público / Informática e Espanhol.",
-    ],
-  },
-];
+const base = "/Site-Instucional-Advocacia-JK";
+const membrosRaw = await getCollection("equipe");
+
+const equipeCompleta = membrosRaw
+  .sort((a, b) => a.data.ordem - b.data.ordem)
+  .map((membro) => {
+    let fotoPath = membro.data.foto;
+    if (!fotoPath) {
+      fotoPath = `${base}/src/assets/simbolojk.png`;
+    } else if (!fotoPath.startsWith(base)) {
+      fotoPath = `${base}${fotoPath.startsWith("/") ? "" : "/"}${fotoPath}`;
+    }
+
+    return {
+      ...membro.data,
+      foto: fotoPath,
+    };
+  });
 ---
 
 <section class="equipe-moderna-section">
@@ -83,7 +30,7 @@ const equipeCompleta = [
           <div class={`membro-row ${index % 2 !== 0 ? "reverso" : ""}`}>
             <div class="membro-col-foto">
               <div class="foto-frame">
-                <Image src={membro.foto} alt={membro.nome} class="membro-img" />
+                <img src={membro.foto} alt={membro.nome} class="membro-img" />
               </div>
             </div>
             <div class="membro-col-texto">

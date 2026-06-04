@@ -4,6 +4,8 @@
 npm create astro@latest -- --template basics
 ```
 
+npx tinacms dev -c "npm run dev"
+
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
 ## 🚀 Project Structure

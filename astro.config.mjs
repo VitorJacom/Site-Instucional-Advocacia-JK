@@ -9,6 +9,10 @@ export default defineConfig({
     format: "directory",
   },
 
+  redirects: {
+    "/admin": "./index.html",
+  },
+
   server: {
     port: 4321,
     host: true,

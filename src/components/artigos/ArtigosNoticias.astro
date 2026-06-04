@@ -1,24 +1,28 @@
 ---
-const noticias = [
-  {
-    data: "15 Out 2023",
-    titulo: "JK Advocacia em Palestra sobre Direito Sindical",
-    resumo:
-      "JK Advocacia em Palestra sobre Direito Sindical apresentando detalhes em oposição ao cumprimento e compliance em face com empresas...",
-  },
-  {
-    data: "08 Out 2023",
-    titulo: "Kassiane Ramos em Debate de TV sobre Previdência",
-    resumo:
-      "Kassiane Ramos em Debate de TV sobre Previdência - esclarecemos amplos detalhes do compromisso no ensinamento previdenciário, socialmente sobre Previdência...",
-  },
-  {
-    data: "01 Out 2023",
-    titulo: "Novo Advogado se Junta à Equipe JK",
-    resumo:
-      "Novo Advogado se Junta à Equipe JK - JK Advocacia inova Trazendo excelência de direito sobre previdência, sobre advogado e sociais na nova era do Direito...",
-  },
-];
+import { getCollection } from "astro:content";
+
+const postsNoticias = await getCollection("noticias");
+
+// Ordenar as notícias pela data (mais recente primeiro)
+const noticias = postsNoticias
+  .sort((a, b) => b.data.data.getTime() - a.data.data.getTime())
+  .map((noticia) => {
+    // Formata a data para "15 Out 2023"
+    const dataFormatada = new Intl.DateTimeFormat("pt-BR", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    })
+      .format(noticia.data.data)
+      .replace(".", ""); // Remove o ponto do mês se houver
+
+    return {
+      data: dataFormatada,
+      titulo: noticia.data.titulo,
+      resumo: noticia.data.resumo,
+      link: noticia.data.link_externo || "#",
+    };
+  });
 ---
 
 <section class="noticias-section">
@@ -26,17 +30,21 @@ const noticias = [
     <h2 class="section-title">Últimas Notícias</h2>
     <div class="noticias-list">
       {
-        noticias.map((noticia) => (
-          <div class="noticia-item">
-            <h3 class="noticia-title">
-              <span>{noticia.data}</span> - {noticia.titulo}
-            </h3>
-            <p class="noticia-resumo">{noticia.resumo}</p>
-            <a href="#" class="noticia-link">
-              Ver Notícia
-            </a>
-          </div>
-        ))
+        noticias.length > 0 ? (
+          noticias.map((noticia) => (
+            <div class="noticia-item">
+              <h3 class="noticia-title">
+                <span>{noticia.data}</span> - {noticia.titulo}
+              </h3>
+              <p class="noticia-resumo">{noticia.resumo}</p>
+              <a href={noticia.link} class="noticia-link">
+                Ver Notícia
+              </a>
+            </div>
+          ))
+        ) : (
+          <p>Nenhuma notícia publicada.</p>
+        )
       }
     </div>
   </div>

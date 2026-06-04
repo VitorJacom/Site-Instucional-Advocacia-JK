@@ -1,27 +1,28 @@
 ---
-const artigos = [
-  {
-    numero: "01.",
-    titulo: "Desafios do Trabalho na Era Digital: Direitos e Deveres",
-    resumo:
-      "Os desafios do trabalho na Era Digital englobam direitos e deveres, analisando as complexidades entre empregadores e empregados em um ambiente virtual.",
-    autor: "Dr. Júlio Sant'Anna",
-  },
-  {
-    numero: "02.",
-    titulo: "Planejamento Previdenciário: Preparando seu Futuro",
-    resumo:
-      "O Planejamento Previdenciário: Preparando seu futuro aborda as nuances dos direitos do consumidor e previdenciário aplicados no cenário de constantes mudanças.",
-    autor: "Dra. Kassiane Ramos",
-  },
-  {
-    numero: "03.",
-    titulo: "O Impacto das Novas Leis do Consumidor",
-    resumo:
-      "O Impacto das Novas Leis do Consumidor reflete as novas diretrizes dos direitos e garantias processuais, modernizando e resguardando o direito frente a novas dinâmicas.",
-    autor: "Dra. Kassiane Ramos",
-  },
-];
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("artigos");
+const base = "/Site-Instucional-Advocacia-JK";
+
+// Opcional: ordenar os posts por data ou nome de arquivo antes de numerar
+const postsOrdenados = posts.sort((a, b) => a.id.localeCompare(b.id));
+
+const artigos = postsOrdenados.map((post, index) => {
+  // Geração automática do número (0 -> "01.", 1 -> "02.", etc)
+  const numeroAuto = (index + 1).toString().padStart(2, "0") + ".";
+
+  let capaFinal = post.data.capa || `${base}/src/assets/simbolojk.png`;
+  if (post.data.capa && !capaFinal.startsWith(base)) {
+    capaFinal = `${base}${capaFinal.startsWith("/") ? "" : "/"}${capaFinal}`;
+  }
+
+  return {
+    ...post.data,
+    numero: numeroAuto, // Injetamos o número gerado aqui
+    capa: capaFinal,
+    url: post.data.slug_personalizado,
+  };
+});
 ---
 
 <section class="artigos-lista-section">
@@ -30,16 +31,25 @@ const artigos = [
       {
         artigos.map((artigo) => (
           <article class="artigo-card">
-            <div class="artigo-img-placeholder" />
+            <div class="artigo-img-wrapper">
+              <img src={artigo.capa} alt={artigo.titulo} class="artigo-img" />
+            </div>
             <div class="artigo-content">
               <h3 class="artigo-title">
+                {/* O número agora vem do JS, não do Markdown */}
                 <span>{artigo.numero}</span> {artigo.titulo}
               </h3>
               <p class="artigo-resumo">{artigo.resumo}</p>
               <p class="artigo-autor">Por {artigo.autor}</p>
-              <a href="#" class="btn-saiba-mais">
-                SAIBA MAIS
-              </a>
+
+              {artigo.url && (
+                <a
+                  href={`${base}/artigos/${artigo.url}/`}
+                  class="btn-saiba-mais"
+                >
+                  SAIBA MAIS
+                </a>
+              )}
             </div>
           </article>
         ))
@@ -47,6 +57,15 @@ const artigos = [
     </div>
   </div>
 </section>
+
+<style>
+  .artigo-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+</style>
 
 <style>
   .artigos-lista-section {
