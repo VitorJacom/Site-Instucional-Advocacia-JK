@@ -1,10 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import simbolojk from "../assets/simbolojk.png";
-import { SITE_INFO } from "../lib/constants";
+import { getSiteContact } from "../lib/siteConfig";
 
 const pathname = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
+
+const { whatsappLink } = await getSiteContact();
 ---
 
 <header id="main-header" class="header-container">
@@ -46,7 +48,7 @@ const base = import.meta.env.BASE_URL;
 
     <div class="actions-group">
       <a
-        href={SITE_INFO.whatsapp.link}
+        href={whatsappLink}
         class="btn-whatsapp"
         target="_blank"
         rel="noopener noreferrer"

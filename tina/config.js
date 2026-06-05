@@ -129,6 +129,52 @@ export default defineConfig({
           { type: "number", name: "ordem", label: "Ordem de Exibição" },
         ],
       },
+      {
+        name: "contatos",
+        label: "Configurações de Contato",
+        path: "src/content/contatos",
+        format: "md",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          {
+            type: "string",
+            name: "titulo",
+            label: "Título",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "telefone_principal",
+            label: "WhatsApp Principal - Apenas Números (Ex: 5551991177031)",
+            description: "Este número será usado para gerar automaticamente o link da API do WhatsApp do site (wa.me/número).",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "label_whatsapp",
+            label: "Texto de Exibição do WhatsApp (Ex: (51) 99117-7031)",
+            description: "Texto que aparecerá como rótulo ou número visível do WhatsApp principal.",
+            required: true,
+          },
+          {
+            type: "object",
+            name: "telefones_oficiais",
+            label: "Lista de Telefones Oficiais (Para aviso de golpe e rodapé)",
+            description: "Adicione todos os telefones oficiais do escritório para exibir no modal de segurança contra golpe e no rodapé.",
+            list: true,
+            fields: [
+              { type: "string", name: "nome", label: "Identificação (Ex: WhatsApp Dr. Júlio, Fixo)" },
+              { type: "string", name: "numero", label: "Número Formatado (Ex: (51) 99117-7031)" },
+            ],
+          },
+        ],
+      },
     ],
   },
 });

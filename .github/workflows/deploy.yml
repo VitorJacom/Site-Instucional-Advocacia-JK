@@ -27,9 +27,6 @@ jobs:
         run: npm install
       - name: Build TinaCMS
         run: npx tinacms build
-        env:
-          TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
-          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
       - name: Build Astro
         run: npm run build
       - name: Upload artifact

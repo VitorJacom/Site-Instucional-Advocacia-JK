@@ -36,4 +36,20 @@ const equipe = defineCollection({
     ordem: z.number().default(99),
   }),
 });
-export const collections = { artigos, noticias, equipe };
+
+const contatos = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/contatos" }),
+  schema: z.object({
+    titulo: z.string(),
+    telefone_principal: z.string(),
+    label_whatsapp: z.string(),
+    telefones_oficiais: z.array(
+      z.object({
+        nome: z.string(),
+        numero: z.string(),
+      })
+    ),
+  }),
+});
+
+export const collections = { artigos, noticias, equipe, contatos };

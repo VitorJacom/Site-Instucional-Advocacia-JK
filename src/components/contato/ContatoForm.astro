@@ -1,5 +1,7 @@
 ---
-import { SITE_INFO } from "../../lib/constants";
+import { getSiteContact } from "../../lib/siteConfig";
+
+const { whatsappLink } = await getSiteContact();
 ---
 
 <section class="form-section">
@@ -72,7 +74,7 @@ import { SITE_INFO } from "../../lib/constants";
       <div class="whatsapp-box">
         <p>Prefere um contato imediato?</p>
         <a
-          href={SITE_INFO.whatsapp.link}
+          href={whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
           class="btn-whatsapp"

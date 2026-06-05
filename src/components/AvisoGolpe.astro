@@ -1,7 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import simbolojk from "../assets/simbolojk.png";
-import { SITE_INFO } from "../lib/constants";
+import { getSiteContact } from "../lib/siteConfig";
+
+const { telefonesOficiais } = await getSiteContact();
 ---
 
 <div id="modal-golpe" class="modal-overlay">
@@ -36,10 +38,15 @@ import { SITE_INFO } from "../lib/constants";
       <div class="info-box">
         <ul>
           <li>
-            <strong>Nosso número NÃO mudou:</strong> Atendemos apenas pelos numeros
-            <span>{SITE_INFO.whatsapp.number} </span>, <span
-              >{SITE_INFO.whatsapp.numberKasi}</span
-            >, <span>{SITE_INFO.whatsapp.numberEscritorio}</span>.
+            <strong>Nosso número NÃO mudou:</strong> Atendemos apenas pelos números oficiais:
+            {
+              telefonesOficiais.map((tel, index) => (
+                <>
+                  <span>{tel.numero} ({tel.nome})</span>
+                  {index < telefonesOficiais.length - 1 ? ", " : "."}
+                </>
+              ))
+            }
           </li>
           <li>
             <strong>Não solicitamos PIX</strong> ou depósitos para liberação de processos
