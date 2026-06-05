@@ -1,6 +1,7 @@
 ---
 titulo: "Direito de Família: Guarda Compartilhada"
 resumo: "Entenda o funcionamento da guarda compartilhada e como os tribunais aplicam este princípio prioritariamente."
+data: 2026-05-20
 autor: "Dra. Kassiane Ramos"
 capa: "/src/assets/socios.jpeg"
 ---

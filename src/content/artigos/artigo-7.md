@@ -1,6 +1,7 @@
 ---
 titulo: "Direitos Trabalhistas das Gestantes"
 resumo: "Conheça a estabilidade provisória, licença-maternidade, direito a consultas e outros benefícios garantidos por lei."
+data: 2026-06-01
 autor: "Dra. Kassiane Ramos"
 capa: "/src/assets/socios.jpeg"
 link_referencia:

@@ -1,6 +1,7 @@
 ---
 titulo: "Contratos Digitais: Validade e Execução"
 resumo: "Conheça os requisitos legais essenciais para que contratos assinados eletronicamente tenham validade jurídica plena."
+data: 2026-05-15
 autor: "Dr. Júlio Sant'Anna"
 capa: "/src/assets/heroImage.jpeg"
 link_referencia:

@@ -1,6 +1,7 @@
 ---
 titulo: "Direitos do Consumidor nas Compras Online"
 resumo: "Conheça os principais direitos que protegem o consumidor em transações de e-commerce e canais digitais."
+data: 2026-05-10
 autor: "Dra. Kassiane Ramos"
 capa: "/src/assets/heroImage.jpeg"
 ---

@@ -10,8 +10,8 @@ const posts = await getCollection("artigos");
 const base = "/Site-Instucional-Advocacia-JK";
 const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
 
-// Opcional: ordenar os posts por data ou nome de arquivo antes de numerar
-const postsOrdenados = posts.sort((a, b) => a.id.localeCompare(b.id));
+// Ordenar os posts por data de publicação (mais recente primeiro)
+const postsOrdenados = posts.sort((a, b) => b.data.data.getTime() - a.data.data.getTime());
 
 const totalArtigos = postsOrdenados.length;
 const postsFiltrados = limitar ? postsOrdenados.slice(0, 6) : postsOrdenados;

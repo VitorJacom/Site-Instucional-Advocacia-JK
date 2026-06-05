@@ -3,6 +3,7 @@ titulo: A Importância do Planejamento Sucessório
 capa: /src/assets/socios.jpeg
 slug_personalizado: planejamento-sucessorio-familiar
 resumo: Saiba como o planejamento sucessório pode proteger o patrimônio familiar e evitar conflitos judiciais futuros.
+data: 2026-05-05
 autor: Dr. Júlio Sant'Anna
 link_referencia:
   - 'https://www.planalto.gov.br/ccivil_03/leis/l10406compilada.htm'

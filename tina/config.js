@@ -23,6 +23,11 @@ export default defineConfig({
         label: "Artigos",
         path: "src/content/artigos",
         format: "md",
+        defaultItem: () => {
+          return {
+            data: new Date().toISOString(),
+          };
+        },
         fields: [
           {
             type: "string",
@@ -30,6 +35,15 @@ export default defineConfig({
             label: "Título",
             isTitle: true,
             required: true,
+          },
+          {
+            type: "datetime",
+            name: "data",
+            label: "Data de Publicação",
+            required: true,
+            ui: {
+              dateFormat: "DD MMM YYYY",
+            },
           },
           { type: "image", name: "capa", label: "Imagem de Capa" }, // Novo campo de imagem
           {

@@ -1,6 +1,7 @@
 ---
 titulo: "Direito Imobiliário: Usucapião Extrajudicial"
 resumo: "Como regularizar a posse de um imóvel de forma rápida através do cartório de registro de imóveis."
+data: 2026-05-28
 autor: "Dra. Kassiane Ramos"
 capa: "/src/assets/heroImage.jpeg"
 ---

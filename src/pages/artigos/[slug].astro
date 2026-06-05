@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { titulo, resumo, autor, capa, link_referencia } = post.data;
+const { titulo, data, resumo, autor, capa, link_referencia } = post.data;
 const { Content } = await render(post);
 
 const base = import.meta.env.BASE_URL;
@@ -31,6 +31,12 @@ if (capa && !capaFinal.startsWith(cleanBase)) {
   capaFinal = `${cleanBase}${capaFinal.startsWith("/") ? "" : "/"}${capaFinal}`;
 }
 const { whatsappLink } = await getSiteContact();
+
+const dataFormatada = new Intl.DateTimeFormat("pt-BR", {
+  day: "2-digit",
+  month: "long",
+  year: "numeric",
+}).format(data);
 ---
 
 <Layout title={`${titulo} - JK Advogados`}>
@@ -47,7 +53,7 @@ const { whatsappLink } = await getSiteContact();
         </a>
         <h1 class="article-title">{titulo}</h1>
         <div class="article-meta">
-          <span class="article-author">Por <strong>{autor}</strong></span>
+          <span>{dataFormatada}</span> • <span class="article-author">Por <strong>{autor}</strong></span>
         </div>
       </div>
     </section>

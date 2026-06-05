@@ -1,6 +1,7 @@
 ---
 titulo: "Lei Geral de Proteção de Dados (LGPD) em PMEs"
 resumo: "Um guia prático com os passos básicos para adaptar micro e pequenas empresas à LGPD sem custos excessivos."
+data: 2026-05-25
 autor: "Dr. Júlio Sant'Anna"
 capa: "/src/assets/simbolojk.png"
 ---
