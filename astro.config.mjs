@@ -1,9 +1,15 @@
 import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://vitorjacom.github.io",
+  site: "https://www.jkadvogados.com",
 
-  base: "/Site-Instucional-Advocacia-JK",
+  integrations: [sitemap()],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 
   build: {
     format: "directory",

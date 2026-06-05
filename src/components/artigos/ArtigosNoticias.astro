@@ -7,8 +7,6 @@ interface Props {
 const { limitar = false } = Astro.props;
 
 const postsNoticias = await getCollection("noticias");
-const base = import.meta.env.BASE_URL;
-const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
 
 // Ordenar as notícias pela data (mais recente primeiro)
 const postsOrdenados = postsNoticias.sort((a, b) => b.data.data.getTime() - a.data.data.getTime());
@@ -29,7 +27,7 @@ const noticias = postsFiltrados.map((noticia) => {
     data: dataFormatada,
     titulo: noticia.data.titulo,
     resumo: noticia.data.resumo,
-    link: noticia.data.link_externo || `${cleanBase}/noticias/${noticia.id}/`,
+    link: noticia.data.link_externo || `/noticias/${noticia.id}/`,
     isExterno: !!noticia.data.link_externo,
   };
 });
@@ -70,7 +68,7 @@ const noticias = postsFiltrados.map((noticia) => {
 
     {limitar && totalNoticias > 6 && (
       <div class="ver-todos-container">
-        <a href={`${cleanBase}/noticias/todas/`} class="btn-ver-todos">
+        <a href="/noticias/todas/" class="btn-ver-todos">
           Ver Todas as Notícias
         </a>
       </div>

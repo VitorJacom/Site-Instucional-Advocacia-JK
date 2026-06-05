@@ -4,7 +4,6 @@ import heroBgImage from "../assets/heroImage.jpeg";
 
 import { getSiteContact } from "../lib/siteConfig";
 
-const base = import.meta.env.BASE_URL;
 const { linkInstagram, linkFacebook, linkLinkedin } = await getSiteContact();
 ---
 
@@ -24,7 +23,7 @@ const { linkInstagram, linkFacebook, linkLinkedin } = await getSiteContact();
       construímos uma advocacia voltada à defesa de direitos sociais com
       experiência e dedicação.
     </p>
-    <a href={`${base}/sobre`} class="hero-btn">Saiba Mais</a>
+    <a href="/sobre" class="hero-btn">Saiba Mais</a>
   </div>
 
   <div class="hero-social">

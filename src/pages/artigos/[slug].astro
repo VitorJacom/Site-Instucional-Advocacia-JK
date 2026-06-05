@@ -20,15 +20,10 @@ const { post } = Astro.props;
 const { titulo, data, resumo, autor, capa, link_referencia } = post.data;
 const { Content } = await render(post);
 
-const base = import.meta.env.BASE_URL;
-
-// Remove o trailing slash se houver para evitar barra dupla, se necessário
-const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
-
 // Resolve capa image URL
-let capaFinal = capa || `${cleanBase}/src/assets/simbolojk.png`;
-if (capa && !capaFinal.startsWith(cleanBase)) {
-  capaFinal = `${cleanBase}${capaFinal.startsWith("/") ? "" : "/"}${capaFinal}`;
+let capaFinal = capa || "/src/assets/simbolojk.png";
+if (capa && !capaFinal.startsWith("/")) {
+  capaFinal = `/${capaFinal}`;
 }
 const { whatsappLink } = await getSiteContact();
 
@@ -45,7 +40,7 @@ const dataFormatada = new Intl.DateTimeFormat("pt-BR", {
     <!-- Hero Section -->
     <section class="article-hero">
       <div class="container hero-container">
-        <a href={`${cleanBase}/artigos`} class="back-link">
+        <a href="/artigos" class="back-link">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="arrow-icon">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
@@ -67,7 +62,7 @@ const dataFormatada = new Intl.DateTimeFormat("pt-BR", {
               src={capaFinal} 
               alt={titulo} 
               class="article-cover" 
-              onerror={`this.onerror=null; this.src='${cleanBase}/src/assets/simbolojk.png';`}
+              onerror="this.onerror=null; this.src='/src/assets/simbolojk.png';"
             />
           </div>
         )}

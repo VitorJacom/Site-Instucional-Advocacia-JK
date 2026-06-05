@@ -7,8 +7,6 @@ interface Props {
 const { limitar = false } = Astro.props;
 
 const posts = await getCollection("artigos");
-const base = import.meta.env.BASE_URL;
-const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
 
 // Ordenar os posts por data de publicação (mais recente primeiro)
 const postsOrdenados = posts.sort((a, b) => b.data.data.getTime() - a.data.data.getTime());
@@ -20,9 +18,9 @@ const artigos = postsFiltrados.map((post, index) => {
   // Geração automática do número (0 -> "01.", 1 -> "02.", etc)
   const numeroAuto = (index + 1).toString().padStart(2, "0") + ".";
 
-  let capaFinal = post.data.capa || `${cleanBase}/src/assets/simbolojk.png`;
-  if (post.data.capa && !capaFinal.startsWith(cleanBase)) {
-    capaFinal = `${cleanBase}${capaFinal.startsWith("/") ? "" : "/"}${capaFinal}`;
+  let capaFinal = post.data.capa || "/src/assets/simbolojk.png";
+  if (post.data.capa && !capaFinal.startsWith("/")) {
+    capaFinal = `/${capaFinal}`;
   }
 
   return {
@@ -45,7 +43,7 @@ const artigos = postsFiltrados.map((post, index) => {
                 src={artigo.capa} 
                 alt={artigo.titulo} 
                 class="artigo-img" 
-                onerror={`this.onerror=null; this.src='${cleanBase}/src/assets/simbolojk.png';`}
+                onerror="this.onerror=null; this.src='/src/assets/simbolojk.png';"
               />
             </div>
             <div class="artigo-content">
@@ -58,7 +56,7 @@ const artigos = postsFiltrados.map((post, index) => {
 
               {artigo.url && (
                 <a
-                  href={`${cleanBase}/artigos/${artigo.url}/`}
+                  href={`/artigos/${artigo.url}/`}
                   class="btn-saiba-mais"
                 >
                   SAIBA MAIS
@@ -72,7 +70,7 @@ const artigos = postsFiltrados.map((post, index) => {
     
     {limitar && totalArtigos > 6 && (
       <div class="ver-todos-container">
-        <a href={`${cleanBase}/artigos/todos/`} class="btn-ver-todos">
+        <a href="/artigos/todos/" class="btn-ver-todos">
           Ver Todos os Artigos
         </a>
       </div>

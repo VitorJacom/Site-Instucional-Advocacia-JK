@@ -4,8 +4,6 @@ import simbolojk from "../assets/simbolojk.png";
 import selo from "../assets/selo.png";
 import { getSiteContact } from "../lib/siteConfig";
 
-const base = import.meta.env.BASE_URL;
-
 const { telefonesOficiais, linkInstagram, linkFacebook, linkLinkedin } = await getSiteContact();
 ---
 
@@ -32,11 +30,11 @@ const { telefonesOficiais, linkInstagram, linkFacebook, linkLinkedin } = await g
 
         <div class="footer-nav">
           <h4 class="footer-heading">Navegação</h4>
-          <a href={base}>Início</a>
-          <a href={`${base}/sobre`}>Sobre Nós</a>
-          <a href={`${base}/atuacao`}>Áreas de Atuação</a>
-          <a href={`${base}/artigos`}>Artigos</a>
-          <a href={`${base}/contato`}>Contato</a>
+          <a href="/">Início</a>
+          <a href="/sobre">Sobre Nós</a>
+          <a href="/atuacao">Áreas de Atuação</a>
+          <a href="/artigos">Artigos</a>
+          <a href="/contato">Contato</a>
         </div>
 
         <div class="footer-contact">

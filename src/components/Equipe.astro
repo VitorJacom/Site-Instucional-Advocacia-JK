@@ -1,8 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 
-const base = import.meta.env.BASE_URL;
-const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
 const membrosRaw = await getCollection("equipe");
 
 const equipe = membrosRaw
@@ -10,9 +8,7 @@ const equipe = membrosRaw
   .map((membro) => {
     let fotoPath = membro.data.foto;
     if (!fotoPath) {
-      fotoPath = `${cleanBase}/src/assets/simbolojk.png`;
-    } else if (!fotoPath.startsWith(cleanBase)) {
-      fotoPath = `${cleanBase}${fotoPath.startsWith("/") ? "" : "/"}${fotoPath}`;
+      fotoPath = "/src/assets/simbolojk.png";
     }
 
     return {
@@ -35,7 +31,7 @@ const equipe = membrosRaw
                 src={membro.foto} 
                 alt={membro.nome} 
                 class="membro-foto" 
-                onerror={`this.onerror=null; this.src='${cleanBase}/src/assets/simbolojk.png';`}
+                onerror="this.onerror=null; this.src='/src/assets/simbolojk.png';"
               />
             </div>
             <div class="membro-info">
@@ -43,7 +39,7 @@ const equipe = membrosRaw
               <p class="membro-cargo">{membro.cargo}</p>
               <div class="divider" />
               <p class="membro-resumo">{membro.resumo}</p>
-              <a href={`${cleanBase}/sobre`} class="btn-saiba-mais">
+              <a href="/sobre" class="btn-saiba-mais">
                 SAIBA MAIS
               </a>
             </div>

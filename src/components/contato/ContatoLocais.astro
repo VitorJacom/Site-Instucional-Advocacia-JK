@@ -1,18 +1,15 @@
 ---
 import { getEntry } from "astro:content";
 
-const base = import.meta.env.BASE_URL;
-const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
-
 const contatoEntry = await getEntry("contatos", "contato");
 const { escritorios = [], demais_locais = [] } = contatoEntry?.data || {};
 
 const escritoriosProcessados = escritorios.map((escritorio) => {
   let imgPath = escritorio.imagem;
   if (!imgPath) {
-    imgPath = `${cleanBase}/src/assets/simbolojk.png`;
-  } else if (!imgPath.startsWith(cleanBase)) {
-    imgPath = `${cleanBase}${imgPath.startsWith("/") ? "" : "/"}${imgPath}`;
+    imgPath = "/src/assets/simbolojk.png";
+  } else if (!imgPath.startsWith("/")) {
+    imgPath = `/${imgPath}`;
   }
   return {
     ...escritorio,
@@ -34,7 +31,7 @@ const escritoriosProcessados = escritorios.map((escritorio) => {
                 src={escritorio.imagem}
                 alt={escritorio.nome}
                 class="office-img"
-                onerror={`this.onerror=null; this.src='${cleanBase}/src/assets/simbolojk.png';`}
+                onerror="this.onerror=null; this.src='/src/assets/simbolojk.png';"
               />
             </div>
             <div class="office-info">

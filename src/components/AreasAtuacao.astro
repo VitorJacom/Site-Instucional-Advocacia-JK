@@ -1,8 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import bgImage from "../assets/imageAreaAtuacao.jpeg";
-const base = import.meta.env.BASE_URL;
-
 const areas = [
   {
     num: "01",
@@ -29,7 +27,7 @@ const areas = [
     num: "04",
     id: "previdenciario",
     title: "Direito\nPrevidenciário",
-    desc: "Para o segurado em Direito Previdenciário, atuamos em aposentadorias, auxílios-doença, pensão por morte e revisões de benefícios.",
+    desc: "Para o segurado em Direito Previdenciário, atuamos in aposentadorias, auxílios-doença, pensão por morte e revisões de benefícios.",
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>`,
   },
   {
@@ -59,7 +57,7 @@ const areas = [
               <span>{area.num}.</span> {area.title}
             </h3>
             <p class="area-card-desc">{area.desc}</p>
-            <a href={`${base}/atuacao#${area.id}`} class="area-card-link">
+            <a href={`/atuacao#${area.id}`} class="area-card-link">
               SAIBA MAIS
             </a>
           </div>

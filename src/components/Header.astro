@@ -4,7 +4,6 @@ import simbolojk from "../assets/simbolojk.png";
 import { getSiteContact } from "../lib/siteConfig";
 
 const pathname = Astro.url.pathname;
-const base = import.meta.env.BASE_URL;
 
 const { whatsappLink } = await getSiteContact();
 ---
@@ -12,7 +11,7 @@ const { whatsappLink } = await getSiteContact();
 <header id="main-header" class="header-container">
   <div class="header-inner">
     <div class="logo-group">
-      <a href={base}>
+      <a href="/">
         <Image src={simbolojk} alt="Logo JK Advogados" class="logo-img" />
       </a>
       <div class="logo-text">
@@ -23,25 +22,25 @@ const { whatsappLink } = await getSiteContact();
 
     <nav id="nav-menu" class="nav-menu">
       <a
-        href={base}
-        class={pathname === base || pathname === `${base}/` ? "active" : ""}
+        href="/"
+        class={pathname === "/" ? "active" : ""}
         >Início</a
       >
       <a
-        href={`${base}/sobre`}
+        href="/sobre"
         class={pathname.includes("/sobre") ? "active" : ""}>Sobre Nós</a
       >
       <a
-        href={`${base}/atuacao`}
+        href="/atuacao"
         class={pathname.includes("/atuacao") ? "active" : ""}
         >Áreas de Atuação</a
       >
       <a
-        href={`${base}/artigos`}
+        href="/artigos"
         class={pathname.includes("/artigos") ? "active" : ""}>Artigos</a
       >
       <a
-        href={`${base}/contato`}
+        href="/contato"
         class={pathname.includes("/contato") ? "active" : ""}>Contato</a
       >
     </nav>

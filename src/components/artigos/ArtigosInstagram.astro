@@ -9,8 +9,6 @@ const posts = instagramData.posts.map((post) => {
   };
 });
 
-const base = import.meta.env.BASE_URL;
-const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
 const instagramUrl = "https://www.instagram.com/jkadvogados/";
 ---
 
@@ -36,7 +34,7 @@ const instagramUrl = "https://www.instagram.com/jkadvogados/";
                 src={post.mediaUrl}
                 alt={post.caption}
                 class="ig-img"
-                onerror={`this.onerror=null; this.src='${cleanBase}/src/assets/simbolojk.png';`}
+                onerror="this.onerror=null; this.src='/src/assets/simbolojk.png';"
               />
               <div class="overlay">
                 <svg
