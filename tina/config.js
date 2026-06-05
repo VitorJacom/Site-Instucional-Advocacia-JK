@@ -7,6 +7,7 @@ export default defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "public",
+    basePath: "Site-Instucional-Advocacia-JK",
   },
   media: {
     tina: {
@@ -15,7 +16,6 @@ export default defineConfig({
     },
   },
   publicFolder: "public",
-  basePath: "Site-Instucional-Advocacia-JK",
   schema: {
     collections: [
       {
