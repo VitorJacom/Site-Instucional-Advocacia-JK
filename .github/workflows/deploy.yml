@@ -22,11 +22,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'npm'
+
+      - name: Cache dependencies and build output
+        id: cache-npm
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            .astro
+          key: ${{ runner.os }}-node-astro-${{ hashFiles('package-lock.json', 'tina/config.js', 'src/content.config.ts') }}
+          restore-keys: |
+            ${{ runner.os }}-node-astro-
+
       - name: Install dependencies
-        run: npm install
+        if: steps.cache-npm.outputs.cache-hit != 'true'
+        run: npm ci
+
       - name: Build TinaCMS
         run: npx tinacms build
+
       - name: Build Astro
         run: npm run build
       - name: Upload artifact
