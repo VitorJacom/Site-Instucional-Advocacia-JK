@@ -59,6 +59,11 @@ export default defineConfig({
         label: "Notícias",
         path: "src/content/noticias",
         format: "md",
+        defaultItem: () => {
+          return {
+            data: new Date().toISOString(),
+          };
+        },
         fields: [
           {
             type: "string",
@@ -74,8 +79,6 @@ export default defineConfig({
             required: true, // Torna obrigatório para forçar o preenchimento
             ui: {
               dateFormat: "DD MMM YYYY",
-              // Isso preenche o campo com a data atual automaticamente no painel
-              defaultValue: new Date().toISOString(),
             },
           },
           {
