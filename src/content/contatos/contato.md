@@ -28,4 +28,7 @@ demais_locais:
   - Sindicato Alimentação Osório
   - Sindisaúde RS
   - Vale dos Sinos (São Leopoldo)
+link_instagram: https://www.instagram.com/jkadvogados/
+link_facebook: https://www.facebook.com/JulioSantAnnaAdvogados
+link_linkedin: '#'
 ---

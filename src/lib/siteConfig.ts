@@ -9,18 +9,31 @@ export interface SiteContact {
   whatsappLink: string;
   whatsappLabel: string;
   telefonesOficiais: TelefoneOficial[];
+  linkInstagram: string;
+  linkFacebook: string;
+  linkLinkedin: string;
 }
 
 export async function getSiteContact(): Promise<SiteContact> {
   try {
     const contatoData = await getEntry("contatos", "contato");
     if (contatoData && contatoData.data) {
-      const { telefone_principal, label_whatsapp, telefones_oficiais } = contatoData.data;
+      const { 
+        telefone_principal, 
+        label_whatsapp, 
+        telefones_oficiais,
+        link_instagram,
+        link_facebook,
+        link_linkedin
+      } = contatoData.data;
       const cleanPhone = telefone_principal.replace(/\D/g, "");
       return {
         whatsappLink: `https://wa.me/${cleanPhone}`,
         whatsappLabel: label_whatsapp,
         telefonesOficiais: telefones_oficiais || [],
+        linkInstagram: link_instagram || "https://www.instagram.com/jkadvogados/",
+        linkFacebook: link_facebook || "https://www.facebook.com/JulioSantAnnaAdvogados",
+        linkLinkedin: link_linkedin || "#",
       };
     }
   } catch (e) {
@@ -37,5 +50,8 @@ export async function getSiteContact(): Promise<SiteContact> {
       { nome: "WhatsApp Escritório", numero: "(51) 9439-5639" },
       { nome: "Telefone Fixo", numero: "(51) 3662-7032" }
     ],
+    linkInstagram: "https://www.instagram.com/jkadvogados/",
+    linkFacebook: "https://www.facebook.com/JulioSantAnnaAdvogados",
+    linkLinkedin: "#",
   };
 }

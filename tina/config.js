@@ -215,6 +215,21 @@ export default defineConfig({
             label: "Atendimento em Demais Locais (Tags)",
             list: true,
           },
+          {
+            type: "string",
+            name: "link_instagram",
+            label: "Link do Instagram",
+          },
+          {
+            type: "string",
+            name: "link_facebook",
+            label: "Link do Facebook",
+          },
+          {
+            type: "string",
+            name: "link_linkedin",
+            label: "Link do LinkedIn",
+          },
         ],
       },
     ],

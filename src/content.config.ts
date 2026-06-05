@@ -60,6 +60,9 @@ const contatos = defineCollection({
       })
     ).optional(),
     demais_locais: z.array(z.string()).optional(),
+    link_instagram: z.string().optional(),
+    link_facebook: z.string().optional(),
+    link_linkedin: z.string().optional(),
   }),
 });
 

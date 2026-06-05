@@ -1,31 +1,16 @@
 ---
-import { Image } from "astro:assets";
+import instagramData from "../../data/instagram.json";
 
-// Importação das 10 imagens da pasta src/assets/ig/
-import post1 from "../../assets/ig/ig-1.png";
-import post2 from "../../assets/ig/ig-2.png";
-import post3 from "../../assets/ig/ig-3.png";
-import post4 from "../../assets/ig/ig-4.png";
-import post5 from "../../assets/ig/ig-5.png";
-import post6 from "../../assets/ig/ig-6.png";
-import post7 from "../../assets/ig/ig-7.png";
-import post8 from "../../assets/ig/ig-8.png";
-import post9 from "../../assets/ig/ig-9.png";
-import post10 from "../../assets/ig/ig-10.png";
+const posts = instagramData.posts.map((post) => {
+  return {
+    permalink: post.permalink,
+    mediaUrl: post.sizes?.medium?.mediaUrl || post.mediaUrl,
+    caption: post.prunedCaption || post.caption || "Publicação JK Advogados",
+  };
+});
 
-const posts = [
-  { img: post1 },
-  { img: post2 },
-  { img: post3 },
-  { img: post4 },
-  { img: post5 },
-  { img: post6 },
-  { img: post7 },
-  { img: post8 },
-  { img: post9 },
-  { img: post10 },
-];
-
+const base = import.meta.env.BASE_URL;
+const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
 const instagramUrl = "https://www.instagram.com/jkadvogados/";
 ---
 
@@ -41,16 +26,17 @@ const instagramUrl = "https://www.instagram.com/jkadvogados/";
       {
         posts.map((post) => (
           <a
-            href={instagramUrl}
+            href={post.permalink}
             target="_blank"
             rel="noopener noreferrer"
             class="ig-card"
           >
             <div class="ig-img-wrapper">
-              <Image
-                src={post.img}
-                alt="Publicação JK Advogados"
+              <img
+                src={post.mediaUrl}
+                alt={post.caption}
                 class="ig-img"
+                onerror={`this.onerror=null; this.src='${cleanBase}/src/assets/simbolojk.png';`}
               />
               <div class="overlay">
                 <svg
