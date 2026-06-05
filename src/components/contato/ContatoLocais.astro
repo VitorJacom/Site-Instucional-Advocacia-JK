@@ -1,7 +1,24 @@
 ---
-import { Image } from "astro:assets";
-import imgSedeSap from "../../assets/sap.png";
-import imgSedeCapao from "../../assets/capaoDaCanoa.png";
+import { getEntry } from "astro:content";
+
+const base = import.meta.env.BASE_URL;
+const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
+
+const contatoEntry = await getEntry("contatos", "contato");
+const { escritorios = [], demais_locais = [] } = contatoEntry?.data || {};
+
+const escritoriosProcessados = escritorios.map((escritorio) => {
+  let imgPath = escritorio.imagem;
+  if (!imgPath) {
+    imgPath = `${cleanBase}/src/assets/simbolojk.png`;
+  } else if (!imgPath.startsWith(cleanBase)) {
+    imgPath = `${cleanBase}${imgPath.startsWith("/") ? "" : "/"}${imgPath}`;
+  }
+  return {
+    ...escritorio,
+    imagem: imgPath,
+  };
+});
 ---
 
 <section class="locais-section">
@@ -9,87 +26,62 @@ import imgSedeCapao from "../../assets/capaoDaCanoa.png";
     <h2 class="section-heading">Nossos Escritórios</h2>
 
     <div class="offices-grid">
-      <div class="office-card">
-        <div class="office-image">
-          <Image
-            src={imgSedeSap}
-            alt="Sede Santo Antônio da Patrulha"
-            class="office-img"
-          />
-        </div>
-        <div class="office-info">
-          <h3>Santo Antônio da Patrulha (Sede)</h3>
-          <p>
-            Rua Marechal Floriano Peixoto, 284, Segundo andar<br />Bairro Cidade
-            Alta | CEP 95.500-000
-          </p>
-          <p class="hours">
-            <strong>Horário:</strong> Seg. a Sex., 08:30 às 11:30 e 13:30 às 18:00
-          </p>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=JK+Advogados&query_place_id=ChIJ5fJxvhz4GJURZNLF54i_p-Q"
-            target="_blank"
-            class="btn-maps"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              ><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-              ></path><circle cx="12" cy="10" r="3"></circle></svg
-            >
-            VER NO MAPS
-          </a>
-        </div>
-      </div>
-
-      <div class="office-card">
-        <div class="office-image">
-          <Image
-            src={imgSedeCapao}
-            alt="Filial Capão da Canoa"
-            class="office-img"
-          />
-        </div>
-        <div class="office-info">
-          <h3>Capão da Canoa</h3>
-          <p>
-            Rua José Frederico Hoffmann, 43, sala 05<br />Bairro Santa Luzia |
-            CEP 94.691-066
-          </p>
-          <p class="hours">
-            <strong>Horário:</strong> Seg. a Sex., 08:30 às 11:30 e 13:30 às 18:00
-          </p>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=JK+Advogados&query_place_id=ChIJx3c_RIN4GJURS1iuPl5fQUI"
-            target="_blank"
-            class="btn-maps"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              ><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-              ></path><circle cx="12" cy="10" r="3"></circle></svg
-            >
-            VER NO MAPS
-          </a>
-        </div>
-      </div>
+      {
+        escritoriosProcessados.map((escritorio) => (
+          <div class="office-card">
+            <div class="office-image">
+              <img
+                src={escritorio.imagem}
+                alt={escritorio.nome}
+                class="office-img"
+                onerror={`this.onerror=null; this.src='${cleanBase}/src/assets/simbolojk.png';`}
+              />
+            </div>
+            <div class="office-info">
+              <h3>{escritorio.nome}</h3>
+              <p set:html={escritorio.endereco.replace(/\n/g, "<br />")} />
+              {escritorio.horario && (
+                <p class="hours">
+                  <strong>Horário:</strong> {escritorio.horario}
+                </p>
+              )}
+              {escritorio.link_maps && (
+                <a
+                  href={escritorio.link_maps}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-maps"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  VER NO MAPS
+                </a>
+              )}
+            </div>
+          </div>
+        ))
+      }
     </div>
 
-    <div class="outros-locais">
-      <h3>Atendimento em Demais Locais</h3>
-      <div class="locais-tags">
-        <span>Sindicato Metalúrgicos Taquara</span>
-        <span>Sindicato Alimentação Santo Antônio da Patrulha</span>
-        <span>Sindicato Alimentação Osório</span>
-        <span>Sindisaúde RS</span>
-        <span>Vale dos Sinos (São Leopoldo)</span>
-      </div>
-    </div>
+    {
+      demais_locais && demais_locais.length > 0 && (
+        <div class="outros-locais">
+          <h3>Atendimento em Demais Locais</h3>
+          <div class="locais-tags">
+            {demais_locais.map((local) => (
+              <span>{local}</span>
+            ))}
+          </div>
+        </div>
+      )
+    }
 
     <div class="modalidades-box">
       <h3>Modalidades de Atendimento</h3>

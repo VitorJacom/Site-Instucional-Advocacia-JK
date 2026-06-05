@@ -63,7 +63,12 @@ const dataFormatada = new Intl.DateTimeFormat("pt-BR", {
       <div class="container article-container">
         {capa && (
           <div class="article-cover-wrapper">
-            <img src={capaFinal} alt={titulo} class="article-cover" />
+            <img 
+              src={capaFinal} 
+              alt={titulo} 
+              class="article-cover" 
+              onerror={`this.onerror=null; this.src='${cleanBase}/src/assets/simbolojk.png';`}
+            />
           </div>
         )}
         

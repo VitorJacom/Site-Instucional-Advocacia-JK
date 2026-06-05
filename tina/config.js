@@ -114,6 +114,7 @@ export default defineConfig({
             description: "Lista de links/URLs de fontes utilizadas para esta notícia. Serão mostrados no rodapé da página interna da notícia.",
             list: true,
           },
+          { type: "rich-text", name: "body", label: "Conteúdo", isBody: true },
         ],
       },
       {
@@ -189,6 +190,30 @@ export default defineConfig({
               { type: "string", name: "nome", label: "Identificação (Ex: WhatsApp Dr. Júlio, Fixo)" },
               { type: "string", name: "numero", label: "Número Formatado (Ex: (51) 99117-7031)" },
             ],
+          },
+          {
+            type: "object",
+            name: "escritorios",
+            label: "Nossos Escritórios",
+            list: true,
+            ui: {
+              itemProps: (item) => {
+                return { label: item?.nome || "Novo Escritório" }
+              },
+            },
+            fields: [
+              { type: "string", name: "nome", label: "Nome do Escritório", required: true },
+              { type: "image", name: "imagem", label: "Foto do Escritório" },
+              { type: "string", name: "endereco", label: "Endereço Completo", ui: { component: "textarea" } },
+              { type: "string", name: "horario", label: "Horário de Funcionamento" },
+              { type: "string", name: "link_maps", label: "Link do Google Maps" },
+            ],
+          },
+          {
+            type: "string",
+            name: "demais_locais",
+            label: "Atendimento em Demais Locais (Tags)",
+            list: true,
           },
         ],
       },

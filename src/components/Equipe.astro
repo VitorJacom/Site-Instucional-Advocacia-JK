@@ -1,7 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 
-const base = "/Site-Instucional-Advocacia-JK";
+const base = import.meta.env.BASE_URL;
+const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
 const membrosRaw = await getCollection("equipe");
 
 const equipe = membrosRaw
@@ -9,9 +10,9 @@ const equipe = membrosRaw
   .map((membro) => {
     let fotoPath = membro.data.foto;
     if (!fotoPath) {
-      fotoPath = `${base}/src/assets/simbolojk.png`;
-    } else if (!fotoPath.startsWith(base)) {
-      fotoPath = `${base}${fotoPath.startsWith("/") ? "" : "/"}${fotoPath}`;
+      fotoPath = `${cleanBase}/src/assets/simbolojk.png`;
+    } else if (!fotoPath.startsWith(cleanBase)) {
+      fotoPath = `${cleanBase}${fotoPath.startsWith("/") ? "" : "/"}${fotoPath}`;
     }
 
     return {
@@ -30,14 +31,19 @@ const equipe = membrosRaw
         equipe.map((membro) => (
           <div class="membro-card">
             <div class="membro-foto-container">
-              <img src={membro.foto} alt={membro.nome} class="membro-foto" />
+              <img 
+                src={membro.foto} 
+                alt={membro.nome} 
+                class="membro-foto" 
+                onerror={`this.onerror=null; this.src='${cleanBase}/src/assets/simbolojk.png';`}
+              />
             </div>
             <div class="membro-info">
               <h3 class="membro-nome">{membro.nome}</h3>
               <p class="membro-cargo">{membro.cargo}</p>
               <div class="divider" />
               <p class="membro-resumo">{membro.resumo}</p>
-              <a href={`${base}/sobre`} class="btn-saiba-mais">
+              <a href={`${cleanBase}/sobre`} class="btn-saiba-mais">
                 SAIBA MAIS
               </a>
             </div>

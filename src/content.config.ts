@@ -50,6 +50,16 @@ const contatos = defineCollection({
         numero: z.string(),
       })
     ),
+    escritorios: z.array(
+      z.object({
+        nome: z.string(),
+        imagem: z.string().optional(),
+        endereco: z.string(),
+        horario: z.string(),
+        link_maps: z.string().optional(),
+      })
+    ).optional(),
+    demais_locais: z.array(z.string()).optional(),
   }),
 });
 

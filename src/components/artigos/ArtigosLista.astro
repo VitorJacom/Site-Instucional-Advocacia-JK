@@ -7,7 +7,7 @@ interface Props {
 const { limitar = false } = Astro.props;
 
 const posts = await getCollection("artigos");
-const base = "/Site-Instucional-Advocacia-JK";
+const base = import.meta.env.BASE_URL;
 const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
 
 // Ordenar os posts por data de publicação (mais recente primeiro)
@@ -41,7 +41,12 @@ const artigos = postsFiltrados.map((post, index) => {
         artigos.map((artigo) => (
           <article class="artigo-card">
             <div class="artigo-img-wrapper">
-              <img src={artigo.capa} alt={artigo.titulo} class="artigo-img" />
+              <img 
+                src={artigo.capa} 
+                alt={artigo.titulo} 
+                class="artigo-img" 
+                onerror={`this.onerror=null; this.src='${cleanBase}/src/assets/simbolojk.png';`}
+              />
             </div>
             <div class="artigo-content">
               <h3 class="artigo-title">
@@ -53,7 +58,7 @@ const artigos = postsFiltrados.map((post, index) => {
 
               {artigo.url && (
                 <a
-                  href={`${base}/artigos/${artigo.url}/`}
+                  href={`${cleanBase}/artigos/${artigo.url}/`}
                   class="btn-saiba-mais"
                 >
                   SAIBA MAIS

@@ -1,7 +1,30 @@
 ---
-import { Image } from "astro:assets";
-import fotoJulio from "../assets/julio.png";
-import fotoKassiane from "../assets/kasi.png";
+import { getCollection } from "astro:content";
+
+const base = import.meta.env.BASE_URL;
+const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
+
+const membrosRaw = await getCollection("equipe");
+
+const socios = membrosRaw
+  .filter((membro) => {
+    const cargoLower = membro.data.cargo.toLowerCase();
+    return cargoLower.includes("sócio") || cargoLower.includes("sócia");
+  })
+  .sort((a, b) => a.data.ordem - b.data.ordem)
+  .map((membro) => {
+    let fotoPath = membro.data.foto;
+    if (!fotoPath) {
+      fotoPath = `${cleanBase}/src/assets/simbolojk.png`;
+    } else if (!fotoPath.startsWith(cleanBase)) {
+      fotoPath = `${cleanBase}${fotoPath.startsWith("/") ? "" : "/"}${fotoPath}`;
+    }
+
+    return {
+      ...membro.data,
+      foto: fotoPath,
+    };
+  });
 ---
 
 <section class="socios-section">
@@ -9,27 +32,21 @@ import fotoKassiane from "../assets/kasi.png";
     <h2 class="socios-title">Nossos Sócios</h2>
 
     <div class="socios-grid">
-      <div class="socio-card">
-        <div class="socio-photo-wrapper">
-          <Image
-            src={fotoJulio}
-            alt="Dr. Júlio Sant'Anna"
-            class="socio-photo"
-          />
-        </div>
-        <h3 class="socio-name">Dr. Júlio Sant'Anna</h3>
-      </div>
-
-      <div class="socio-card">
-        <div class="socio-photo-wrapper">
-          <Image
-            src={fotoKassiane}
-            alt="Dra. Kassiane Ramos"
-            class="socio-photo"
-          />
-        </div>
-        <h3 class="socio-name">Dra. Kassiane Ramos</h3>
-      </div>
+      {
+        socios.map((socio) => (
+          <div class="socio-card">
+            <div class="socio-photo-wrapper">
+              <img
+                src={socio.foto}
+                alt={socio.nome}
+                class="socio-photo"
+                onerror={`this.onerror=null; this.src='${cleanBase}/src/assets/simbolojk.png';`}
+              />
+            </div>
+            <h3 class="socio-name">{socio.nome}</h3>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
