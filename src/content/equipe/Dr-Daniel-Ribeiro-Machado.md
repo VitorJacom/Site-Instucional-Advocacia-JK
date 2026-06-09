@@ -12,7 +12,6 @@ textos:
   - Pós-Graduado em Execução Trabalhista pela Legale Educacional.
   - Sempre em busca da excelência para cuidar dos interesses das pessoas.
   - Em agosto de 2022 ingressou na equipe como advogado no escritório de Júlio Sant’Anna & Kassiane Ramos Advogados.
-  - Presidente da OAB SAP 2027
 ordem: 3
 ---
 
