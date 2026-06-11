@@ -27,7 +27,7 @@ A empregadora, por sua vez, contestou a configuração do atraso salarial reiter
 
 Na primeira instância, a sentença indeferiu a indenização por danos morais. A juíza entendeu que, embora houvesse atrasos de alguns dias em alguns meses, o atraso salarial reiterado não estava configurado nos termos da Súmula nº 104 do TRT-RS. Por essa razão, julgou improcedente o pedido de indenização.
 
-No segundo grau, a relatora do caso, desembargadora Maria Silvana Rotta Tedesco, destacou que os comprovantes de transferência bancária apresentados pela empresa demonstravam um atraso sistemático no pagamento dos salários, mesmo que por poucos dias. 
+No segundo grau, a relatora do caso, desembargadora Maria Silvana Rotta Tedesco, destacou que os comprovantes de transferência bancária apresentados pela empresa demonstravam um atraso sistemático no pagamento dos salários, mesmo que por poucos dias.
 
 A perícia contábil corroborou essa constatação. A partir do exemplo de uma empregada, a perícia demonstrou que a empresa atrasou o pagamento de salários em sete ocasiões dentro de um período de 12 meses, além do décimo terceiro salário, o que também acontecia para os demais trabalhadores.
 
@@ -35,8 +35,8 @@ Com base nisso, a desembargadora entendeu que estava configurado o atraso reiter
 
 Além dos danos morais, a ação também pleiteava outras verbas, como diferenças de FGTS com o acréscimo da multa de 40% para empregados cujos contratos de trabalho foram encerrados por despedida sem justa causa. O valor da condenação foi acrescido de R$ 20 mil para R$ 80 mil.
 
-Além da relatora, participaram do julgamento os desembargadores Manuel Cid Jardon e Rosiul de Freitas Azambuja. O acórdão transitou em julgado, portanto não cabem mais recursos contra a decisão. 
+Além da relatora, participaram do julgamento os desembargadores Manuel Cid Jardon e Rosiul de Freitas Azambuja. O acórdão transitou em julgado, portanto não cabem mais recursos contra a decisão.
 
-Fim do corpo da notícia.
+A ação foi movida pelo Sindicato dos Trabalhadores nas Indústrias da Alimentação de Santo Antônio da Patrulha, sob o patrocinio de Júlio Sant'Anna & Kassiane Ramos Sociedade de Advogados.
 
-Fonte: Bárbara Frank (Secom/TRT-4). Imagem de Depositphotos (LuisLimaJr).![](</src/assets/810 carteira vazia.jpg>)
+![](</src/assets/810 carteira vazia.jpg>)
