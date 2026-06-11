@@ -23,3 +23,5 @@ A depender do grau de nocividade do agente, a aposentadoria poderá ocorrer apó
 Para Mendonça, a imposição de idade mínima prejudicou o trabalhador exposto aos agentes prejudiciais à saúde. “Mesmo após a exposição a 15, 20 ou 25 anos a determinada agente nocivo a saúde do trabalhador, está-se diante de regra que tolhe qualquer possibilidade de escolha por parte do segurado, obrigado a prosseguir no mercado de trabalho, provavelmente sujeito às mesmas condições adversas que em tese viabilizaram o tratamento diferenciado”, afirmou. 
 
 Ao votar pela validade dos demais pontos da reforma, o ministro destacou o cenário de desequilíbrio das contas da previdência que a norma buscou combater. “Essa aposentadoria \[por insalubridade] enseja benefício que, na média, perduravam por tempo muito superior às demais modalidades existentes. Destaco que o valor médio dessa modalidade de aposentadoria é consideravelmente maior se comparado às outras modalidades”. 
+
+![](</src/assets/download (1).jpeg>)
