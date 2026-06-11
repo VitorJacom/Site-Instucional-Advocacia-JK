@@ -15,6 +15,6 @@ O resultado da mediação foi levado ao conhecimento dos trabalhadores em assemb
 
 A partir dos critérios negociados, cada trabalhador deverá ajuizar pedido de homologação de acordo extrajudicial, nova modalidade de ação introduzida pela Reforma Trabalhista. Os pagamentos serão realizados após as homologações dos acordos.
 
-Fim do corpo da notícia.
+Ação movida pelo Sindicato dos Trabalhadores nas Indústrias da Alimentação de Santo Antônio da Patrulha, sob o patrocinio de Júlio Sant'Anna & Kassiane Ramos Sociedade de Advogados
 
-Fonte: Juliano Machado - Secom/TRT4![](</src/assets/25 Santo Antonio da Patrulha 810p 3.jpeg>)
+![](</src/assets/25 Santo Antonio da Patrulha 810p 3.jpeg>)
