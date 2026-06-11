@@ -1,6 +1,6 @@
 ---
 titulo: Sindrome de Burnot
-data: 2026-05-05T00:00:00.000Z
+data: 2026-05-23T00:00:00.000Z
 capa: /src/assets/socios.jpeg
 slug_personalizado: planejamento-sucessorio-familiar
 resumo: Saiba como o planejamento sucessório pode proteger o patrimônio familiar e evitar conflitos judiciais futuros.
