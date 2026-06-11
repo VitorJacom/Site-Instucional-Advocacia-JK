@@ -2,7 +2,9 @@
 titulo: Mediação da Justiça do Trabalho garante melhores condições a cerca de 70 trabalhadores despedidos de frigorífico em Santo Antônio da Patrulh
 data: 2019-04-26T00:00:00.000Z
 resumo: Mediação da Justiça do Trabalho garante melhores condições a cerca de 70 trabalhadores despedidos de frigorífico em Santo Antônio da Patrulha
-link_externo: 'https://www.trt4.jus.br/portais/trt4/modulos/noticias/229408'
+link_externo: ''
+link_referencia:
+  - 'https://www.trt4.jus.br/portais/trt4/modulos/noticias/229408'
 ---
 
 Uma negociação intermediada pela Justiça do Trabalho em Santo Antônio da Patrulha propiciou que cerca de 70 trabalhadores conseguissem condições mais favoráveis para recebimento de verbas rescisórias, após a despedida coletiva procedida por um frigorífico da cidade. As mediações foram conduzidas pela juíza Silvana Martinez de Medeiros, titular da Vara do Trabalho de Osório, que tem jurisdição também em Santo Antônio da Patrulha.
