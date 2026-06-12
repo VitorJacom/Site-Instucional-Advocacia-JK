@@ -4,9 +4,6 @@ data: 2026-05-15T00:00:00.000Z
 capa: /src/assets/heroImage.jpeg
 resumo: ''
 autor: Dr. Júlio Sant'Anna
-link_referencia:
-  - 'https://www.planalto.gov.br/ccivil_03/medida_provisoria/2200-2.htm'
-  - 'https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105.htm'
 ---
 
 Em 2025, esses foram os erros que mais apareceram nas rescisões. Vale conferir se algum deles está na sua:
@@ -27,4 +24,4 @@ Os depósitos do FGTS não foram feitos todos os meses.
 
 Valores tirados da rescisão sem explicação clara.
 
-Esses erros podem reduzir bastante o valor final da sua rescisão.
+Esses erros podem reduzir bastante o valor final da sua rescisão.![](/src/assets/shutterstock_1855311790-scaled.jpg)
