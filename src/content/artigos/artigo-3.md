@@ -1,7 +1,7 @@
 ---
 titulo: Erros mais comuns nas rescisões de contratos de trabalho
 data: 2026-05-15T00:00:00.000Z
-capa: /src/assets/Carteira-de-trabalho-digital.webp
+capa: ''
 resumo: ''
 autor: Dr. Júlio Sant'Anna
 ---
@@ -24,4 +24,4 @@ Os depósitos do FGTS não foram feitos todos os meses.
 
 Valores tirados da rescisão sem explicação clara.
 
-Esses erros podem reduzir bastante o valor final da sua rescisão.
+Esses erros podem reduzir bastante o valor final da sua rescisão.![](/src/assets/Carteira-de-trabalho-digital.webp)
