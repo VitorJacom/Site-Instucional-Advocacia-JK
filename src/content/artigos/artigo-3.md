@@ -1,6 +1,6 @@
 ---
 titulo: Erros mais comuns nas rescisões de contratos de trabalho
-data: 2026-05-15T00:00:00.000Z
+data: 2026-03-20T00:00:00.000Z
 capa: ''
 resumo: ''
 autor: Dr. Júlio Sant'Anna
