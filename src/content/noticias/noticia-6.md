@@ -59,4 +59,4 @@ Como denunciar
 
 Ao presenciar uma situação de trabalho infantil, você pode fazer uma denúncia ao Conselho Tutelar de sua cidade, à Delegacia Regional do Trabalho mais perto de sua casa, às secretarias de Assistência Social ou diretamente ao Ministério Público do Trabalho.
 
-Também possível fazer a denúncia on-line na página do Ministério Público do TrabalhoAbre em nova aba ou no Sistema Ipê Trabalho InfantilAbre em nova aba, do Ministério do Trabalho e Emprego. ![](</src/assets/WhatsApp Image 2026-06-11 at 17.49.23.jpeg>)
+Também possível fazer a denúncia on-line na página do Ministério Público do TrabalhoAbre em nova aba ou no Sistema Ipê Trabalho InfantilAbre em nova aba, do Ministério do Trabalho e Emprego. 
