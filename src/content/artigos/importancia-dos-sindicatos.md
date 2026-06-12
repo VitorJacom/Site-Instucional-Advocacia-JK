@@ -2,7 +2,7 @@
 titulo: Funções dos Sindicatos
 data: 2024-12-11T00:00:00.000Z
 capa: /src/assets/heroImage.jpeg
-resumo: 'Uma análise profunda sobre o papel dos sindicatos, o impacto histórico das mudanças na contribuição obrigatória e a busca por representatividade.'
+resumo: 'O inciso III do art. 8°, da Constituição Federal de 1988, trata da prerrogativa dada aos sindicatos para defender interesses coletivos ou individuais da categoria, seja em questões individuais, seja em questões coletivas.'
 autor: Dr. Júlio César Sant'Anna de Souza
 ---
 
