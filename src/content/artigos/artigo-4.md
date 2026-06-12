@@ -89,3 +89,5 @@ OAB/RS 81.302
 Julio Sant’Anna & Kassiane Ramos Sociedade de Advogados
 
 OAB/RS 10.260
+
+![](/src/assets/ChatGPT%20Image%2012%20de%20jun.%20de%202026,%2009_09_36.png)
