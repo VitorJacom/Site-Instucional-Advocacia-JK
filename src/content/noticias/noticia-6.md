@@ -2,7 +2,7 @@
 titulo: 'Trabalho infantil: “Quando uma criança é forçada a trabalhar, seu futuro é comprometido”, alerta desembargadora Rejane Pedra'
 data: 2026-06-13T00:00:00.000Z
 resumo: 'Trabalho infantil: “Quando uma criança é forçada a trabalhar, seu futuro é comprometido”'
-link_externo: 'https://www.trt4.jus.br/portais/trt4/modulos/noticias/51000832'
+link_externo: ''
 link_referencia:
   - 'https://www.trt4.jus.br/portais/trt4/modulos/noticias/51000832'
 ---
