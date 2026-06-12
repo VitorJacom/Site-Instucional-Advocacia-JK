@@ -1,6 +1,6 @@
 ---
 titulo: A Concessão do Benefício de Prestação Continuada ao Portador de Síndrome de Down
-data: 2026-06-01T00:00:00.000Z
+data: 2025-02-05T00:00:00.000Z
 capa: ''
 resumo: ''
 autor: Dra. Kassiane Ramos
@@ -18,11 +18,11 @@ Para a concessão do referido benefício, além dos requisitos ser idoso com ida
 
 Tais requisitos, em alguns casos, acabam impedindo o deferimento do benefício assistencial, em especial aos portadores de Síndrome de Down pela questão do enfrentamento da sua (in) capacidade.
 
-Por oportuno, salienta-se que a Síndrome de Down não se trata de uma doença, mas de síndrome genética que pode condicionar ou favorecer a presença de quadros patológicos. Atualmente, a síndrome em questão é a primeira causa conhecida de discapacidade intelectual, representando aproximadamente 25% de todos os casos de atraso de intelecto, traço presente em todas as pessoas portadoras de Down.  
+Por oportuno, salienta-se que a Síndrome de Down não se trata de uma doença, mas de síndrome genética que pode condicionar ou favorecer a presença de quadros patológicos. Atualmente, a síndrome em questão é a primeira causa conhecida de discapacidade intelectual, representando aproximadamente 25% de todos os casos de atraso de intelecto, traço presente em todas as pessoas portadoras de Down.
 
 Dessa forma, o posicionamento do Superior Tribunal de Justiça ao relativizar o critério estabelecido no dispositivo legal que prevê renda per capita inferior a ¼ do salário mínimo, já que a limitação do valor da renda per capita familiar não deve ser considerada a única forma de se comprovar que a pessoa não possui outros meios de prover a própria manutenção ou de tê-la provida por sua família, bem como em relação ao critério da incapacidade, ou seja, ao entender que o requisito incapacidade para a vida independente não exige que a pessoa possua uma vida vegetativa se mostraram significativos avanços para a concessão do benefício de prestação continuada.
 
-Tais posicionamentos se mostram de fundamental importância, em especial ao portador de Síndrome de Down, pois a pessoa com essa síndrome se relaciona em sociedade, insere-se no mercado de trabalho, tem capacidade de estudar, etc. 
+Tais posicionamentos se mostram de fundamental importância, em especial ao portador de Síndrome de Down, pois a pessoa com essa síndrome se relaciona em sociedade, insere-se no mercado de trabalho, tem capacidade de estudar, etc.
 
 O portador de Síndrome de Down, salvo alguns casos especiais, é capaz de manter uma vida “independente”, ou seja, interage com o meio em que vive, veste-se e se alimenta com autonomia, freqüenta o ambiente escolar, pode trabalhar ou desempenhar outras atividades, etc. Além disso, com o aumento da expectativa de vida que tem sido verificado especialmente nos indivíduos com Síndrome de Down, a preocupação passa a ser com o apoio que terão quando seus pais não estiverem mais presentes. Por isso que os entendimentos trazidos nas jurisprudências dos Tribunais são de extrema importância, sobretudo para os estudiosos/operadores jurídicos que devem ter um maior enfrentamento sobre o tema, sob pena do Direito, que é uma ciência em constante evolução, não atender as reais necessidades da sociedade.
 
