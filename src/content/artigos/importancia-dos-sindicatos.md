@@ -1,9 +1,9 @@
 ---
-titulo: "A importância dos Sindicatos nas relações laborais"
-resumo: "Uma análise profunda sobre o papel dos sindicatos, o impacto histórico das mudanças na contribuição obrigatória e a busca por representatividade."
-data: 2024-12-11
-autor: "Dr. Júlio César Sant'Anna de Souza"
-capa: "/src/assets/heroImage.jpeg"
+titulo: Funções dos Sindicatos
+data: 2024-12-11T00:00:00.000Z
+capa: /src/assets/heroImage.jpeg
+resumo: 'Uma análise profunda sobre o papel dos sindicatos, o impacto histórico das mudanças na contribuição obrigatória e a busca por representatividade.'
+autor: Dr. Júlio César Sant'Anna de Souza
 ---
 
 Durante décadas os Sindicatos Profissionais conviveram com as contribuições obrigatórias especialmente o imposto sindical e a contribuição assistencial e a sua retirada de forma abrupta e desproporcional acarretou prejuízos irreparáveis as entidades e aos próprios trabalhadores.
@@ -48,4 +48,4 @@ Há de se buscar um meio termo entre a excessiva contribuição obrigatória exi
 
 No mesmo caminho, Sindicato profissionais que não auferem vantagens negociais a sua categoria ou sindicatos meramente arrecadatórios são galhos inférteis que podem serem os causadores da derrubada da arvore mandando os que dão furtos. A contribuição sindical, moderada é claro, advinda da norma coletiva negociada demonstra ser o melhor caminho para manutenção da paz social de forma quantitativa e qualitativa. Cabe ao legislador criar uma Taxa Negocial proporcional as vantagens advindas ao trabalhador pela negociação de seu sindicato na Norma Coletiva de Trabalho, algo em torno de um a três dias de trabalho por ano tão somente para aqueles sindicatos profissionais que efetivamente firmarem acordos ou convenções coletivas de trabalho e no caso de malogro nas negociações obtiverem o julgamento transitado em julgado do competente dissidio coletivo de trabalho.
 
-*Por Júlio César Sant`Anna de Souza (OAB/RS 33.764)*
+*Por Júlio César Sant\`Anna de Souza (OAB/RS 33.764)*
