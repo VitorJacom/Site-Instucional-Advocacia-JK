@@ -20,4 +20,4 @@ Também participaram do julgamento a juíza convocada Cacilda Ribeiro Isaacsson 
 
 As partes não recorreram da decisão.
 
-Fonte: [https://www.trt4.jus.br/portais/trt4/modulos/noticias/50979782](https://www.trt4.jus.br/portais/trt4/modulos/noticias/50979782)
+Fonte: [https://www.trt4.jus.br/portais/trt4/modulos/noticias/50979782![](/src/assets/images.jpeg)](https://www.trt4.jus.br/portais/trt4/modulos/noticias/50979782)
