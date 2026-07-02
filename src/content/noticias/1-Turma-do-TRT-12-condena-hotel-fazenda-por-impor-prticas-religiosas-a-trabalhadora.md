@@ -37,4 +37,4 @@ O prazo para recurso da decisão foi encerrado.
 
 Número do processo: 0000124-58.2025.5.12.0030
 
-Fonte: [https://portal.trt12.jus.br/noticias/1a-turma-condena-hotel-fazenda-por-impor-praticas-religiosas-trabalhadora![](/src/assets/8bc481_c7b31bbae6e846bd8d9bc9d916e7d003~mv2.avif)](https://portal.trt12.jus.br/noticias/1a-turma-condena-hotel-fazenda-por-impor-praticas-religiosas-trabalhadora)
+Fonte: [https://portal.trt12.jus.br/noticias/1a-turma-condena-hotel-fazenda-por-impor-praticas-religiosas-trabalhadora](https://portal.trt12.jus.br/noticias/1a-turma-condena-hotel-fazenda-por-impor-praticas-religiosas-trabalhadora)
