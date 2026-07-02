@@ -15,23 +15,17 @@ Já durante o retiro, os participantes eram encaminhados a "mentores" para conve
 
 No processo, a trabalhadora alegou que as atividades feriam sua liberdade de crença garantida constitucionalmente, pedindo indenização por danos morais.
 
- 
-
 Limites ultrapassados
 
 Ao julgar a ação, o juiz Fernando Erzinger, da 4ª Vara do Trabalho de Joinville, concluiu que a participação nos eventos religiosos não fazia parte das atribuições para as quais a empregada havia sido contratada. O magistrado também destacou que os depoimentos colhidos no processo indicaram que a frequência aos encontros ocorria sob ameaça de dispensa ou de retaliações no ambiente de trabalho.
 
 Para ele, a conduta extrapolou os limites do poder diretivo do empregador e justificava a reparação por danos morais. Por isso, o hotel-fazenda foi condenado ao pagamento de indenização no valor de R$ 6 mil.
 
- 
-
 Sentença mantida
 
 Inconformada, a empresa recorreu ao Tribunal. No recurso, sustentou que a participação nos eventos era voluntária. Também argumentou que os retiros espirituais eram organizados por terceiros e realizados nas dependências do hotel apenas mediante locação do espaço.
 
 A tese, porém, não convenceu a relatora do caso na 1ª Turma do TRT-SC, desembargadora Lourdes Leiria. Ao analisar os depoimentos colhidos no processo, a magistrada observou que o próprio hotel admitiu a realização dos eventos. Além disso, ela considerou suficientemente demonstrado pela prova testemunhal que os empregados eram pressionados a participar das atividades, mesmo quando possuíam crenças diferentes.
-
- 
 
 Violação da intimidade
 
@@ -43,4 +37,4 @@ O prazo para recurso da decisão foi encerrado.
 
 Número do processo: 0000124-58.2025.5.12.0030
 
-Fonte: [https://portal.trt12.jus.br/noticias/1a-turma-condena-hotel-fazenda-por-impor-praticas-religiosas-trabalhadora](https://portal.trt12.jus.br/noticias/1a-turma-condena-hotel-fazenda-por-impor-praticas-religiosas-trabalhadora)
+Fonte: [https://portal.trt12.jus.br/noticias/1a-turma-condena-hotel-fazenda-por-impor-praticas-religiosas-trabalhadora![](/src/assets/8bc481_c7b31bbae6e846bd8d9bc9d916e7d003~mv2.avif)](https://portal.trt12.jus.br/noticias/1a-turma-condena-hotel-fazenda-por-impor-praticas-religiosas-trabalhadora)
